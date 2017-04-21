@@ -1,8 +1,8 @@
 # Site settings
 title: 창고04
 description: '창고다'
-url: 'http://joshgerdes.com/jekyll-uno'
-baseurl: ''
+url: 'https://parkmh04.github.io/'
+baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 

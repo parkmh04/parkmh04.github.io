@@ -2,6 +2,6 @@
 title:  "Intro..."
 date:   2017-04-18 11:04:23
 categories: [jekyll]
-tags: [jekyll]
+#tags: [jekyll]
 ---
 지금 이순간이 내 인생의 변곡점이 되기를
