@@ -1,16 +1,39 @@
-name: Jekyll Themes
-url: http://matt.harzewski.com
-description: Insert tagline here
+# Site settings
+title: 창고04
+description: '창고다'
+url: 'http://joshgerdes.com/jekyll-uno'
+baseurl: ''
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
 
-permalink: /themes/:title/
+author:
+  name: 'Myungha, Park'
+  email: parkmh04@gmail.com
+  #twitter_username: parkmh04
+  facebook_username: myungha.park.501
+  github_username:  parkmh04
+  linkedin_username: myung-ha-park-923173111
 
-gems: [jekyll-paginate]
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
 
-highlighter: pygments
-paginate: 20
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
 
-markdown: rdiscount
-rdiscount:
-    extensions: ['smart']
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'vendor']
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
