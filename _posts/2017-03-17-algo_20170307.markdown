@@ -6,16 +6,16 @@ tags: [algorithm]
 
 < 문제 >
 
-- 개요
+- 개요  
  CamelCase를 Pothole_case 로 바꾸기 
  파이썬과 같은 몇몇 프로그래밍 언어는 Pothole_case 를 더 선호하는 언어라고 합니다.
  아래 보기와 같이 CameleCase를 Pothole_case 로 바꾸는 함수를 만드시오.
  
- - 예상 결과
+ - 예상 결과  
  예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
  
- codingTest >> coding_test
- algoStudy03 >> algo_study_0_3
+ codingTest >> coding_test  
+ algoStudy03 >> algo_study_0_3  
  
  < 정답풀이 >
  
