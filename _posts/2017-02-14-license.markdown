@@ -23,13 +23,12 @@ OSS 라이센스 종류는 GPL, LGPL, BSD 등 대표적인 3가지 라이센스 
  
  
 ref :  
-[나무위키](https://namu.wiki/w/나무위키:대문)
-1) [공개 SW 라이센스  GPL, LGPL, BSD 정리 블로그](http://darkpgmr.tistory.com/89)
- 
-2) [OS Initiative(모든 OS 라이센스에 대한 설명) ] https://opensource.org/licenses  
+[공개 SW 라이센스  GPL, LGPL, BSD 정리 블로그](http://darkpgmr.tistory.com/89)  
+
+[OS Initiative(모든 OS 라이센스에 대한 설명) ](https://opensource.org/licenses)  
    
-3) [GNU GPL에 대한 빈번한 질문들] https://www.gnu.org/licenses/gpl-faq.ko.html  
+[GNU GPL에 대한 빈번한 질문들] (https://www.gnu.org/licenses/gpl-faq.ko.html)  
    
-4) [한눈에 보는 OSS 라이선스] http://www.bloter.net/archives/209318  
+[한눈에 보는 OSS 라이선스] (http://www.bloter.net/archives/209318)  
  
 
