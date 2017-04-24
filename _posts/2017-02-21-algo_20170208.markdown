@@ -1,41 +1,41 @@
 ---
-title:  "[배열 - Easy]"
+title:  "[경우의 수 - Medium]"
 categories: [algorithm]
 tags: [algorithm]
 ---
 
 < 문제 >
  1. 개요
- 
- n개의 정수를 가진 배열이 있다. 이 배열은 양의정수와 음의 정수를 모두 가지고 있다. 이제 당신은 이 배열을 좀 특별한 방법으로 정렬해야 한다.
- 정렬이 되고 난 후, 음의 정수는 앞쪽에 양의정수는 뒷쪽에 있어야 한다. 
- 또한 양의정수와 음의정수의 순서에는 변함이 없어야 한다. (20분)
- 
+ 효진이는 멀리 뛰기를 연습하고 있습니다. 효진이는 한번에 1칸, 또는 2칸을 뛸 수 있습니다. 칸이 총 4개 있을 때, 효진이는
+ (1칸, 1칸, 1칸, 1칸)
+ (1칸, 2칸, 1칸)
+ (1칸, 1칸, 2칸)
+ (2칸, 1칸, 1칸)
+ (2칸, 2칸)
+ 의 5가지 방법으로 맨 끝 칸에 도달할 수 있습니다.멀리뛰기에 사용될 칸의 수 n이 주어질 때,
+ 효진이가 끝에 도달하는 방법이 몇 가지인지 출력하는 jumpCase 함수를 완성하세요.(20분)
+  
  2. 예상 결과
- 
  예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
  
- 결과 1 : [-1, 1, 3, -2, 2 ]  >> [-1, -2, 1, 3, 2]
- 결과 2 : [-5, 10, 15, -15, 4, -70]  >> [-5, -15, -70, 10, 15, 4] 
+ 예를 들어 4가 입력된다면, 5를 반환해 주면 됩니다.
 
  
  < 정답풀이 >
  
  ``` java
- public class test01 {
+ public class Test08 {
 
-	private static final String result = "결과 : S=%s의 거리가 짧은 쌍 >> %d,  %d";
+	private static final String result = "결과 : %d'칸 이동 시 멀리뛰기 경우의 수 : %d";
 
 	public static void main( String[] args ) {
 		// 시작시간 기록
 		long startTime = System.currentTimeMillis();
 
-		// STEP 1. TEST 데이터 준비
-		int[] testArr = { 1, 3, 4, 8, 13, 17, 20 };
-
-		// STEP 2. 최소 거리
-		int[] resultArr = getMinDistance( testArr );
-		System.out.println( String.format( result, Arrays.toString( testArr ), resultArr[0], resultArr[1] ) );
+		// STEP.1. 1~N 칸까지 도달하는 방법의 수를 구한다.
+		int num = 4;
+		int cnt = getJumpcase( num );
+		System.out.println( String.format( result, num, cnt ) );
 
 		// 종료시간 기록
 		long endTime = System.currentTimeMillis() - startTime;
@@ -44,35 +44,38 @@ tags: [algorithm]
 
 	/**
 	 * <PRE>
-	 * 거리가 짧은 쌍을 리턴한다.
+	 * 1~N 칸까지 도달하는 방법의 수를 구한다.
 	 * </PRE>
 	 * 
-	 * @param testArr : 숫자 배열
-	 * @return int [] : 거리가 짧은 쌍의 배열
+	 * @return 도달하는 경우의 수
 	 */
-	public static int[] getMinDistance( int[] testArr ) {
-		int[] resultArr = new int[2]; // 결과 값 저장을 위한 배열
-		int minDist = -1;             // 최소거리(초기값 -1)
+	public static int getJumpcase( int num ) {
+		int cnt = 0;       // 결과값을 저장하기 위한 변수
+		int inx = 1;       // 한번에 뛰는 칸
+		int tempNum = num; // 연산을 위한 변수
 
-		/*
-		 * 입력받은 배열의 값을 2개씩 꺼내서 두 값 사이의 절대값을 구함. 
-		 * 절대값이 작은 두 값이 결과값이 된다.
-		 */
-		for ( int inx = 1 ; inx < testArr.length ; inx++ ) {
-			int firstNum = testArr[inx - 1];
-			int secondNum = testArr[inx];
+		// 1~2칸만 뛸 수 있고, 남은칸보다 멀리 뛸 수 없다.
+		while ( inx <= 2 && tempNum - inx >= 0 ) {
 
-			// 최소거리를 구한다.(절대값)
-			int dist = Math.abs( secondNum - firstNum );
+			// 1~2칸을 뛴다.
+			tempNum -= inx;
 
-			// 최소거리가 더 적은 경우 갱신한다.
-			if ( minDist == -1 || minDist > dist ) {
-				minDist = dist;
-				resultArr[0] = firstNum;
-				resultArr[1] = secondNum;
+			// 남은 칸이 0이면 다 뛴거다.
+			if ( tempNum == 0 ) {
+				cnt++;
+
+			// 남은 칸이 0보다 크면 더 뛰어야한다.(재귀호출)
+			} else if ( tempNum > 0 ) {
+				cnt += getJumpcase( tempNum );
 			}
+
+			// 1~2칸을 뛰기 위해서 값을 초기화 한다.
+			tempNum = num;
+
+			// 한칸을 추가한다.
+			inx++; 
 		}
-		return resultArr;
+		return cnt;
 	}
 }
 ```
