@@ -1,0 +1,101 @@
+---
+title:  "[버블정렬 - Easy]"
+categories: [algorithm]
+tags: [algorithm]
+---
+
+< 문제 >
+
+- 개요  
+  버블정렬(Bubble Sort).    
+  정의 : 거품 정렬(Bubble sort)은 두 인접한 원소를 검사하여 정렬하는 방법이다.   
+  시간 복잡도가 O(n^{2})로 상당히 느리지만, 코드가 단순하기 때문에 자주 사용된다.   
+  원소의 이동이 거품이 수면으로 올라오는 듯한 모습을 보이기 때문에 지어진 이름이다.  
+ 
+  과정 :  
+  55 07 78 12 42  
+  07 55 78 12 42  첫 번째 패스(회전)  
+  07 55 78 12 42  
+  07 55 12 78 42  
+  07 55 12 42 78  두 번째 패스(회전)  
+  07 55 12 42 78  
+  07 12 55 42 78  
+  07 12 42 55 78  세 번째 패스(회전)  
+  07 12 42 55 78  네 번째 패스(회전)  
+  07 12 42 55 78  다섯번째 패스(회전)  
+  07 12 42 55 78  정렬 끝  
+      
+ - 예상 결과  
+ 예제배열이 버블정렬되는 과정을 출력하여라. 출력은 각 회전마다 한번씩 한다.(회전의 정의 참고)  
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.     
+ 
+ 예제배열1.{ 7, 9, 4, 3, 1 }  
+ 7 4 3 1 9  
+ 4 3 1 7 9  
+ 3 1 4 7 9  
+ 1 3 4 7 9  
+ 
+ 예제배열2.{ 15, 2, 24, 5, 11, 3 }  
+ 2 15  5 11  3  
+ 2  5 11  3 15  
+ 2  5  3 11 15  
+ 2  3  5 11 15  
+ 2  3  5 11 15  
+  
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test05 {
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// 정렬할 배열
+		int array[] = { 7, 9, 4, 3, 1 }; 
+//		int array[] = { 15, 2, 24, 5, 11, 3 }; 
+//		int array[] = { 7, 9, 4, 3, 1 }; 
+		process( array );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	  * 
+	 * <PRE>
+	 * 
+	 * 주어진 배열이 버블정렬되는 과정 출력
+	 * 
+	 * </PRE>
+	 * 
+	 */
+	public static void process( int array[] ) {
+		int stack = 0;
+		int size = array.length;
+		boolean unSorted = true;
+
+		// STEP 1. 모두 정렬될 때까지 반복한다.
+		while ( unSorted ) {
+			int cnt = 0;
+
+			// STEP 2. 오름차순으로 정렬한다.
+			for ( int inx = 0 ; inx < size - 1 ; inx++ ) {
+				if ( array[inx] > array[inx + 1] ) {
+					stack = array[inx];
+					array[inx] = array[inx + 1];
+					array[inx + 1] = stack;
+					cnt++;
+				}
+			}
+			// STEP 3. 배열을 출력한다.
+			System.out.println( Arrays.toString( array ) );
+
+			// STEP 4. 배열 값의 변동이 없으면 정렬이 완료된 것이다.
+			if ( cnt == 0 ) {
+				unSorted = false;
+			}
+		}
+	}
+}
+```
