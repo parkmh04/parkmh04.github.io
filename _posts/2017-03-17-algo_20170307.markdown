@@ -1,0 +1,64 @@
+---
+title:  "[문자열 수정 - Easy]"
+categories: [algorithm]
+tags: [algorithm]
+---
+
+< 문제 >
+
+1. 개요
+ CamelCase를 Pothole_case 로 바꾸기 
+ 파이썬과 같은 몇몇 프로그래밍 언어는 Pothole_case 를 더 선호하는 언어라고 합니다.
+ 아래 보기와 같이 CameleCase를 Pothole_case 로 바꾸는 함수를 만드시오.
+ 
+ 2. 예상 결과
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ 
+ codingTest >> coding_test
+ algoStudy03 >> algo_study_0_3
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test09 {
+
+	private static final String result = "결과 : %s >> %s ";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP.1 CameleCase를 Pothole_case 로 바꾼다.
+		String camael = "algoStudy03";
+		String pothole = switchPothole( camael );
+		System.out.println( String.format( result, camael, pothole ) );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * CamelCase를 Pothole_case 로 바꾼다.
+	 * </PRE>
+	 * 
+	 * @param camael : CalmelCase 문자열
+	 * @return Pothole_case로 변환한 값
+	 */
+	public static String switchPothole( String camael ) {
+		StringBuffer sb = new StringBuffer();
+		char[] arr = camael.toCharArray();
+
+		for ( char ch : arr ) {
+			if ( Character.isUpperCase( ch ) || Character.isDigit( ch ) ) {
+				sb.append( "_" ).append( Character.toLowerCase( ch ) );
+			} else {
+				sb.append( ch );
+			}
+		}
+		return sb.toString();
+	}
+}
+```
