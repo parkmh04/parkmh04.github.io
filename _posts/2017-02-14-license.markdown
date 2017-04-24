@@ -27,8 +27,8 @@ ref :
 
 [OS Initiative(모든 OS 라이센스에 대한 설명) ](https://opensource.org/licenses)  
    
-[GNU GPL에 대한 빈번한 질문들] (https://www.gnu.org/licenses/gpl-faq.ko.html)  
+[GNU GPL에 대한 빈번한 질문들](https://www.gnu.org/licenses/gpl-faq.ko.html)  
    
-[한눈에 보는 OSS 라이선스] (http://www.bloter.net/archives/209318)  
+[한눈에 보는 OSS 라이선스](http://www.bloter.net/archives/209318)  
  
 
