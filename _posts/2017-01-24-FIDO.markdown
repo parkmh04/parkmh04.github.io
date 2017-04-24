@@ -8,7 +8,7 @@ tags: [Web/Was]
 기존에 사용하던 Apache dbcp Library를 기본으로 사용하고 있었음.(DBCP 1.X)    
 기존의 것이 구리기 때문에 Apache Tomcat DBCP Library를 사용하는 것으로 변경하였고.  이에따라 설정의 키들이 변경됨.  
   
-![세피로트](https://cdn.namu.wiki/r/http%3A%2F%2Fi.imgur.com%2F2megHz2.png) 
+![세피로트](https://parkmh04.github.io//images/tomcat8_change.gif) 
   
 <기타 변경점>
  -  JAVA 7 이상을 사용해야함.  
