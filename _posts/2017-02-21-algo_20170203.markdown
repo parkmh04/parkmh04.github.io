@@ -17,8 +17,10 @@ tags: [algorithm]
  예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
  
  예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
- 결과 : 키워드 'Ave Maria, gratia plena, Dominus tecum' , 'Virgo serena, pia, munda et immaculata'의 Anagram 여부 >> true
 
+ ``` java
+ 결과 : 키워드 'Ave Maria, gratia plena, Dominus tecum' , 'Virgo serena, pia, munda et immaculata'의 Anagram 여부 >> true
+ ```
  
  < 정답풀이 >
  

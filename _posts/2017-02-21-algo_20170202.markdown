@@ -13,8 +13,9 @@ tags: [algorithm]
  
  예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
  
+ ``` java
  결과 : 'aaabbcccccca'의 문자 압축 결과 : a3b2c6a1
-
+ ```
  
  < 정답풀이 >
  
