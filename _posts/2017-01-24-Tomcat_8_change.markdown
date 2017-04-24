@@ -1,0 +1,36 @@
+---
+title:  "OSS License 종류"
+categories: [ETC]
+tags: [ETC]
+---
+
+프로젝트 내 OSS 사용 빈도가 높아짐에 따라 OSS 점검은 오픈 전 필수 절차가 되었다.  
+OSS 라이센스 종류는 다양하지만, 흔히 우리는 GPL, LGPL, BSD 등 대표적인 3가지 라이센스로 구분한다.  
+
+각 라이센스 별로 버전이 별도로 관리되므로(ex. BSD 3-Clause, GNU GLP-2.0 등)   
+실제 이용하려는 OSS에 적용되는 License를 면밀히 확인하여야 한다.   
+ 
+- License 제약에 따른 정렬(제약이 강한 순서)  
+    : GPL > LGPL > BSD  
+ 
+**GPL** : GPL 소스를 사용할 경우, 기관 내부에서 사용하는 것에는 문제가 없으나, 해당 소스가 포함된 제품을 상용으로 판매시에
+         제품 내 모든 소스코드를 무료로 공개해야한다. GPL을 이용한 전체 소프트웨어에서 GPL 소스코드를 참조하지 않는 일부분의
+         소프트웨어를 판매할 경우에 대하서는 GPL을 적용하지 않을 수 있다.  
+   
+**LGPL** : LGPL 소스를 사용할 경우, 소스를 수정하지 않은 채 단순 이용만 할 경우에는, 문제가 없으나, LGPL 소스의 일부를 수정한 경우
+           포함된 제품을 상용으로 판매시에 제품 내 모든 소스코드를 무료로 공개해야한다. 단순 이용만 할 경우에도 사용을 명시해야한다.  
+ 
+**BSD** :  수정, 재배포 등 이용에 제한이 없는 OSS License  
+
+ 자세한 내용들은 하기 링크에 정리가 잘되어있다.  
+   
+**ref :**  
+[공개 SW 라이센스  GPL, LGPL, BSD 정리 블로그](http://darkpgmr.tistory.com/89)  
+
+[OS Initiative(모든 OS 라이센스에 대한 설명) ](https://opensource.org/licenses)  
+   
+[GNU GPL에 대한 빈번한 질문들](https://www.gnu.org/licenses/gpl-faq.ko.html)  
+   
+[한눈에 보는 OSS 라이선스](http://www.bloter.net/archives/209318)  
+ 
+
