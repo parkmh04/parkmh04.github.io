@@ -7,7 +7,7 @@ tags: [Web/Was]
 **1. 접속자가 많을 수록 Nginx > Apache ?**
     - Nginx는 Worker Process(Single Thread)를 이용, 각 요청이 올 때마다 Worker Process의 내부 Listner가 요청을 받아읽고, 쓰는 작업을 반복한다.  각 커넥션마다 프로세스와 Thread를 복제하지 않고, Worker Process 내부적으로 처리하기 때문에, 많은 요청이 올 경우에도 CPU/메모리 사용량이 급증하지 않는다.(Event Driven 방식)   
     - Apache는 요청(Connection) 하나당 프로세스와 쓰레드 기반으로 동작한다. 따라서 접속량이 증가할 수록 CPU와 메모리의 사용량이 증가하여 성능저하를 발생 시킬 수 있다.  아파치는 이러한 문제점을 해결 하기 위해 2.4.x 버전 이후로 event MPM 방식을 채용하여 Nginx의 Event Driven 방식을 흉내내고 있으나, Nginx에 비해서는 부족한 편이라고 평가한다.  
-	  [Nginx와 Apache 성능 비교](ttp://blog.naver.com/PostView.nhn?blogId=tmondev&logNo=220737182315&redirect=Dlog&widgetTypeCall=true)  
+	  [Nginx와 Apache 성능 비교](http://blog.naver.com/PostView.nhn?blogId=tmondev&logNo=220737182315&redirect=Dlog&widgetTypeCall=true)  
  
 **2. Session Persistence**  
     - Nginx 의 경우 Session Persistence 기능을 Nginx Plus 버전을 통해서 제공하나, 상용이다.  
