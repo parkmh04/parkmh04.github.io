@@ -9,7 +9,6 @@ tags: [Tech]
    - 발화를 분류하고, 기 정의한 키워드로 변환한다.    
    - 변환한 키워드 간의 가중치 점수를 비교하여 Domain과 MainAction을 결정한다.    
    - 정해진 MainAction에 따라 실제 서비스를 호출하고 결과를 반환한다.    
-
 **NLP** : Natural Langauge Processing  
 **NLU** : Natural Language Understanding  
 **DM** : Data Mining  
@@ -35,17 +34,17 @@ tags: [Tech]
 **5.Classify Domain & Action**    
 -  정련된 Entity들을 처리하여 대상 Domain(분야)과 수행할 Action(기능)을 결정한다.    
 **Domain** : 날씨, 검색, 영화,  리모컨,  채팅...    
-**Action** : 오늘 날씨 검색, 현재 상영중인 영화 조회, 에어콘 켜기...    
+**Action** : 오늘 날씨 검색, 현재 상영중인 영화 조회, 에어콘 켜기...      
 - Domain 후보 추출  
-  영화 : web_search, entity_title, entity_person, email, reserve_movie...    
+  영화 : web_search, entity_title, entity_person, email, reserve_movie...      
 - Rule에 의한 정렬(Entity가 해당되는 Rule)  
-  (영화, web_search), (영화, entity_person), (영화, emali), (영화, entity_title)...    
+  (영화, web_search), (영화, entity_person), (영화, emali), (영화, entity_title)...      
 - 가중치 계산  
-   web_search = 103.12321, entity_person = 82.12121, emali = 77.18851, entity_title =100.9911...    
+   web_search = 103.12321, entity_person = 82.12121, emali = 77.18851, entity_title =100.9911...      
 - Entity 별로 반복하여 가중치가 높은 Entity의 Domain과 Action 결정    
 
 **6.Finalize NE(Named Entity)**    
-: 결정된 Domain, Action에 해당되는 기능 실행    
+- 결정된 Domain, Action에 해당되는 기능 실행    
   ex) “weather_search_today” > 오늘 날씨 검색    
         “movie_ search_title” > 영화 제목 검색    
        “chatting” > 채팅    
