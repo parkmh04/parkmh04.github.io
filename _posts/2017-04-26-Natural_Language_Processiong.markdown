@@ -19,21 +19,21 @@ tags: [Tech]
 ![Process of NLP](https://parkmh04.github.io//images/processofNLU.png)    
 
 **2. NLP Preprocessing(사전 준비)**    
-- 사용자가 입력한 발화(Text, Vocie To Text)를 System에서 처리가 가능하도록 Normalizing한다.(이모티콘 등 일반적인 Charset으로 처리하지 못하는 Uni-code 문자열이 들어올 경우가 있을 수 있음.)    
+ - 사용자가 입력한 발화(Text, Vocie To Text)를 System에서 처리가 가능하도록 Normalizing한다.(이모티콘 등 일반적인 Charset으로 처리하지 못하는 Uni-code 문자열이 들어올 경우가 있을 수 있음.)    
  - 특수문자 제거, 빈칸 제거, Date format 통일 등 데이터의 형태를 정리하기도 한다.  
   ex. ) 광 화문에 가려면 어떻;게 해야해???  > 광화문에가려면어떻게해야해
   
 **3. POS Tagger(형태소 분석)**    
-: Normalize 된 사용자 발화를 형태소 분석을 통해서 형태소와 품사를 구분한다.  
-  ex. )  [ Entity Name: 광화문/NC, Text: 광화문,  Entity Name: 에/JCS, Text: 가, Entity Name: 가/A, Text: 가 Entity Name: 면/PA, Text: 면....]    
-  언어학적 특징이 반영되기 때문에 서비스할 언어마다 POS Tagging 방식, 성능의 차이를 보일 수 있다.     
+  - Normalize 된 사용자 발화를 형태소 분석을 통해서 형태소와 품사를 구분한다.  
+   ex. )  [ Entity Name: 광화문/NC, Text: 광화문,  Entity Name: 에/JCS, Text: 가, Entity Name: 가/A, Text: 가 Entity Name: 면/PA, Text: 면....]    
+  - 언어학적 특징이 반영되기 때문에 서비스할 언어마다 POS Tagging 방식, 성능의 차이를 보일 수 있다.     
   
 **4. Refined Entity By Dictonary(Entity 정련)**    
-: Pos Tagger에서 분류한 Entity를 사전에 정의한 Rule 기반으로 정련한다.  
+-  Pos Tagger에서 분류한 Entity를 사전에 정의한 Rule 기반으로 정련한다.  
   ex. ) 저녘 > 저녁, 원걸 > 원더걸스...     
 
 **5.Classify Domain & Action**    
-: 정련된 Entity들을 처리하여 대상 Domain(분야)과 수행할 Action(기능)을 결정한다.    
+-  정련된 Entity들을 처리하여 대상 Domain(분야)과 수행할 Action(기능)을 결정한다.    
 **Domain** : 날씨, 검색, 영화,  리모컨,  채팅...    
 **Action** : 오늘 날씨 검색, 현재 상영중인 영화 조회, 에어콘 켜기...    
 - Domain 후보 추출  
