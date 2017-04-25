@@ -33,9 +33,8 @@ tags: [Tech]
 -  Pos Tagger에서 분류한 Entity를 사전에 정의한 Rule 기반으로 정련한다.  
   ex. ) 저녘 > 저녁, 원걸 > 원더걸스...     
 
-**5.Classify Domain & Action**    
--  정련된 Entity들을 처리하여 대상 Domain(분야)과 수행할 Action(기능)을 결정한다.
-    
+**5. Classify Domain & Action**    
+-  정련된 Entity들을 처리하여 대상 Domain(분야)과 수행할 Action(기능)을 결정한다.  
 **Domain** : 날씨, 검색, 영화,  리모컨,  채팅...    
 **Action** : 오늘 날씨 검색, 현재 상영중인 영화 조회, 에어콘 켜기...
       
@@ -50,11 +49,9 @@ tags: [Tech]
     
 - Entity 별로 반복하여 가중치가 높은 Entity의 Domain과 Action 결정
         
-**6.Finalize NE(Named Entity)**
+**6. Finalize NE(Named Entity)**
     
 - 결정된 Domain, Action에 해당되는 기능 실행    
-  ex) “weather_search_today” > 오늘 날씨 검색, 
-   
-        “movie_ search_title” > 영화 제목 검색
-  
-		“chatting” > 채팅    
+  ex) “weather_search_today” > 오늘 날씨 검색 
+        “movie_ search_title” > 영화 제목 검색  
+		“chatting” > 채팅
