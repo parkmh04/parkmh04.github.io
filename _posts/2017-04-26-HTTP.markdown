@@ -47,10 +47,10 @@ Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: t
 - **RESTFUL 과 HTTP Method**    
 : 흔히 Restful API를 설계/개발한다고들 한다. Restful의 제약사항/목표는 여러가지 것들이 존재하지만, HTTP Method 관점에서 Restful하다는 것은 HTTP Method들을 원래의 목적에 맞게 사용하는 것을 의미한다.    
 
-1. **회원 가입 URI** : ![POST   /system/member]    
-2. **회원 수정 URI** : ![PUT     /system/member]    
-3. **회원 조회 URI** : ![GET     /system/member]    
-4. **회원 삭제 URI** : ![DELETE /system/member]    
+1. **회원 가입 URI** : [POST] /admin/member]    
+2. **회원 수정 URI** : [PUT] /admin/member]    
+3. **회원 조회 URI** : [GET] /admin/member]    
+4. **회원 삭제 URI** : [DELETE] /admin/member]    
 
 ---
 ### 4. HTTP Status Code    
@@ -69,7 +69,7 @@ Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: t
 - **5xx** : server Error - 서버 오류    
 
 ---
-### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)    
+### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2    
 
 - **HTTP 1.0**    
 1. Client,  IP Adress가 1:1  
