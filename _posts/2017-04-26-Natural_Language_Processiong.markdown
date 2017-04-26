@@ -26,8 +26,8 @@ tags: [Tech]
   - Normalize 된 사용자 발화를 형태소 분석을 통해서 형태소와 품사를 구분한다.  
    ex. )  [ Entity Name: 광화문/NC, Text: 광화문,  Entity Name: 에/JCS, Text: 가, Entity Name: 가/A, Text: 가 Entity Name: 면/PA, Text: 면....]    
   - 언어학적 특징이 반영되기 때문에 서비스할 언어마다 POS Tagging 방식, 성능의 차이를 보일 수 있다.     
-     [Ref : 오픈소스 POS Tagger(한국어)](http://jammun.blogspot.kr/2014/07/pos-tagger.html)    
-     [Ref : 스탠포드 POS Tagger(영어) 설치하기](http://www.citrus-translation.com/stanford-pos-tagger-on-localhost/)
+     Ref : [오픈소스 POS Tagger(한국어)](http://jammun.blogspot.kr/2014/07/pos-tagger.html)    
+     Ref : [스탠포드 POS Tagger(영어) 설치하기](http://www.citrus-translation.com/stanford-pos-tagger-on-localhost/)
       
 **4. Refined Entity By Dictonary(Entity 정련)**    
 -  Pos Tagger에서 분류한 Entity를 사전에 정의한 Rule 기반으로 정련한다.  
