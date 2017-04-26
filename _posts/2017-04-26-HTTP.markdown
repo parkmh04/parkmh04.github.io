@@ -26,14 +26,15 @@ tags: [Network]
 :	Method는 클라이언트 요청에 대한 정보이다. 요청방식.    
     일반적으로 HTTP POST, HTTP GET을 이용하여 개발을 진행한다.  그렇게 해도 상관없기 때문이다.  
 	하지만 실제로 HTTP 규격에서는 HTTP의 Method를 아래와 같이 구분하고 있다.    
-	- GET(SELECT) : 데이터를 요청한다.
-	- POST(INSERT) : 데이터를  삽입한다.
-	- PUT(UPDATE) : 데이터를 업데이트한다.
-	- DELETE(DELETE) : 데이터를 삭제한다.
-	- HEAD(CHECK) : HTTP  Header 정보만 요청한다. 해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해서 사용한다.
-    - OPTIONS : 웹서버가 지원하는 HTTP Mehtod 목록을 요청한다.
-	- TRACE : 클라이언트의 요청을 그대로 반환한다.    
-	Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: target="_blank" }    
+
+	- **GET**(SELECT) : 데이터를 요청한다.  
+	- **POST**(INSERT) : 데이터를  삽입한다.  
+	- **PUT**(UPDATE) : 데이터를 업데이트한다.  
+	- **DELETE**(DELETE) : 데이터를 삭제한다.  
+	- **HEAD**(CHECK) : HTTP  Header 정보만 요청한다. 해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해서 사용한다.  
+    - **OPTIONS** : 웹서버가 지원하는 HTTP Mehtod 목록을 요청한다.  
+	- **TRACE** : 클라이언트의 요청을 그대로 반환한다.  
+	Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: target="_blank" }  
 
 	- RESTFUL 과 HTTP Method  
 : 흔히 Restful API를 설계/개발한다고들 한다. Restful의 제약사항/목표는 여러가지 것들이 존재하지만, HTTP Method 관점에서 Restful하다는 것은 HTTP Method들을 원래의 목적에 맞게 사용하는 것을 의미한다.    
@@ -42,9 +43,9 @@ tags: [Network]
 - 회원 조회 URI : GET      /system/member    
 - 회원 삭제 URI : DELETE /system/member    
 
-### 4. HTTP Status Code
-
+### 4. HTTP Status Code    
 :   HTTP Response 의 상태코드.    
+
 	- **1xx** - Informational - 정보교환영  
 	- **2xx** - Success - 성공(방식에 따라 다름)  
 	- **200** - OK	- 성공  
@@ -56,12 +57,12 @@ tags: [Network]
 	- **405** - Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
 	- **5xx** - server Error - 서버 오류  
 		
-### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)  
+### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)    
 
    - **HTTP 1.0**
      : Client,  IP Adress가 1:1
 	   매번 필요시 Connection을 Open / Close  
-	   하나의 Request/Response에 요청 신규 Connection 생성  
+	   하나의 Request/Response에 요청 신규 Connection 생성    
 
    - **HTTP 1.1**(HTTP 1.0 호환)
      : Client,  IP Adress가 1:N(하나의 IP Adress로 여러개의 WebSite 연결 가능, HTTP Request Header에 Host를 사용해야함.)  
@@ -69,7 +70,7 @@ tags: [Network]
 	   여러개의 Request/Response들이 기존 Connection 활용 가능    
 	   OPTION HTTP Method 지원    
 	   캐싱 기능 제공   
-	   상태코드 추가  
+	   상태코드 추가    
 
    - **HTTP 2.0**(HTTP 1.1 호환)    
     : HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)  
