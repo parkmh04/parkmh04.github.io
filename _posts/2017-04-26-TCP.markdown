@@ -20,22 +20,22 @@ TCP 전송의 기본단위가 TCP Segment이며, Header와 Data로 구성된다.
 >**Source port**(16 비트)    
 : 송신 포트    
 
-**Destination port**(16 비트)    
+>**Destination port**(16 비트)    
 : 수신 포트    
 
-**Sequence number** (32 비트)    
+>**Sequence number** (32 비트)    
 : SYN 플래그가 (1)로 설정된 경우, 이것은 초기 시퀀스 번호가 된다. 실제 데이터의 최초 바이트 값과 그에 상응하는 ACK 번호는 이 값에 1을 더한 값이 된다. SYN 플래그가 (0)으로 해제된 경우, 이것은 현재 세션의 이 세그먼트 데이터의 최초 바이트 값의 누적 시퀀스 번호이다.    
 
-**Acknowledgment number** (32 비트)    
+>**Acknowledgment number** (32 비트)    
 : ACK 플래그가 설정된 경우 이 필드의 값은 수신자가 예상하는 다음 시퀀스 번호이다. 이것은 모든 선행하는 바이트들(존재할 경우)에 대한 수신에 대한 확인응답이 된다. 한쪽이 보낸 최초의 ACK는 반대쪽의 초기 시퀀스 번호 자체에 대한 확인응답이 되며, 데이터에 대한 응답은 포함되지 않는다.    
 
-**Header Length** (4 비트)    
+>**Header Length** (4 비트)    
 : 32-bit 워드 단위로 나타낸 TCP 헤더 크기값이다. 헤더의 최소 크기는 5 워드이며 최대 크기는 15 워드이다.    
 
-**Reserved** (3 비트)    
+>**Reserved** (3 비트)    
 : 미래에 사용하기 위해 남겨둔 예비 필드이며 0으로 채워져야 한다.    
 
-**Control bits** (9 bits)    
+>**Control bits** (9 bits)    
 : 9개의 1-비트 플래그를 포함    
 
 - NS (1 비트) – ECN-nonce 은폐 보호(RFC 3540에 의해 헤더에 추가)    
