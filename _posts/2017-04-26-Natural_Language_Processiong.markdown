@@ -4,7 +4,7 @@ categories: [Tech]
 tags: [Tech]
 ---
 
-**1. Process of NLP**    
+### 1. Process of NLP
 :  사용자로부터 입력된 발화(Text)는 NLP Server에서...    
    - 발화를 분류하고, 기 정의한 키워드로 변환한다.    
    - 변환한 키워드 간의 가중치 점수를 비교하여 Domain과 MainAction을 결정한다.    
