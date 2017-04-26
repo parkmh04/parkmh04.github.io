@@ -62,12 +62,14 @@ tags: [Network]
 		
 ### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)    
 
-   - **HTTP 1.0**
+   - **HTTP 1.0**    
+
      : Client,  IP Adress가 1:1
 	   매번 필요시 Connection을 Open / Close  
 	   하나의 Request/Response에 요청 신규 Connection 생성    
 
-   - **HTTP 1.1**(HTTP 1.0 호환)
+   - **HTTP 1.1**(HTTP 1.0 호환)    
+
      : Client,  IP Adress가 1:N(하나의 IP Adress로 여러개의 WebSite 연결 가능, HTTP Request Header에 Host를 사용해야함.)  
 	   필요시 Multi Connection을 Open / Close    
 	   여러개의 Request/Response들이 기존 Connection 활용 가능    
