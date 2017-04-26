@@ -6,7 +6,7 @@ tags: [Network]
 
     
 **1. HTTP**(Hyper Text Transfer Protocol)    
-
+    
 :  HTTP란 웹서버와 클라이언트간의 문서를 교환하기 위한 통신규약이다.(실제로 어떤종류의 데이터든지 전송이 가능하다.)    
 
     - HTTP는 웹환경에서 사용하는 TCP/IP 기반의 응용프로토콜이다. 
