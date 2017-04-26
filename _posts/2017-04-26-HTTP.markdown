@@ -1,7 +1,7 @@
 ---
 title:  "HTTP"
-categories: [Basic Network]
-tags: [Basic Network]
+categories: [Network]
+tags: [Network]
 ---
 
 **1. HTTP(Hyper Text Transfer Protocol)**    
