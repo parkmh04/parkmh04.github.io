@@ -81,7 +81,7 @@ IP에서 Data는 Packet, Datagram으로 불리는 덩어리로 나뉘어서 전�
 IP는 전송시에 Datagram을 이용하는 데, 아래와 같은 구조로 되어있다.  
 TCP/IP 통신에서 TCP Segment는 IP의 Datagram(IP Packet)에 담겨서 전송된다.    
 
-![IP Datagram](https://parkmh04.github.io/images/ip_datagram.gif)    
+![IP Datagram](https://parkmh04.github.io/images/ip_datagram.png)    
 
 **IP Datagram Header**(IP 전송에 필요한 Header 정보, 네이버 블로그 [Just Blue] 발췌)  
 
