@@ -53,7 +53,7 @@ Cookie는 클라이언트와 서버의 상태 정보를 가지고 있기 때문�
 		회원 조회 URI : GET      /system/member    
 		회원 삭제 URI : DELETE /system/member    
 
-##**4. HTTP Status Code**##    
+**##4. HTTP Status Code##**    
 
 :   HTTP Response 의 상태코드.
   
@@ -68,7 +68,7 @@ Cookie는 클라이언트와 서버의 상태 정보를 가지고 있기 때문�
 	- **405** - Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
 	- **5xx** - server Error - 서버 오류  
 		
-##**5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2**(HTTP 2.0)##
+##5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)##
 
    - **HTTP 1.0**
    
