@@ -37,17 +37,20 @@ tags: [Network]
 	- **HEAD**(CHECK) : HTTP  Header 정보만 요청한다. 해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해서 사용한다.  
     - **OPTIONS** : 웹서버가 지원하는 HTTP Mehtod 목록을 요청한다.  
 	- **TRACE** : 클라이언트의 요청을 그대로 반환한다.    
-
 	Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: target="_blank" }    
-	- RESTFUL 과 HTTP Method  
+
+	- RESTFUL 과 HTTP Method    
+
 : 흔히 Restful API를 설계/개발한다고들 한다. Restful의 제약사항/목표는 여러가지 것들이 존재하지만, HTTP Method 관점에서 Restful하다는 것은 HTTP Method들을 원래의 목적에 맞게 사용하는 것을 의미한다.    
+
 - 회원 가입 URI : POST    /system/member    
 - 회원 수정 URI : PUT      /system/member    
 - 회원 조회 URI : GET      /system/member    
 - 회원 삭제 URI : DELETE /system/member    
 
-### 4. HTTP Status Code        
-:   HTTP Response 의 상태코드
+### 4. HTTP Status Code    
+
+:   HTTP Response 의 상태코드    
 
 	- **1xx** : Informational - 정보교환영  
 	- **2xx** : Success - 성공(방식에 따라 다름)  
