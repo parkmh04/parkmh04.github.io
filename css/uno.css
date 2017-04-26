@@ -995,6 +995,10 @@ table {
     background-clip: padding-box; }
 	
 th {
+	border: solid #ddd;
+    border-width: 1px;
+    padding: 10px;
+    vertical-align: top;
 	font-weight: 700;
     color: #325d72;
     background-color: #eee; }	
