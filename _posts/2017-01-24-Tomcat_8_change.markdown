@@ -21,7 +21,7 @@ tags: [Web/Was]
        따라서 NIO로 Tunning하는 경우가 많은데, 굳이 건드릴 필요가 없게됨.  
    
  **Ref** :  
- [아파치 톰캣 마이그레이션 가이드](https://tomcat.apache.org/migration-8.html)  
- [톰캣 8.0 변경점](http://start.goodtime.co.kr/2014/02/%ED%86%B0%EC%BA%A3-8-%EC%86%8C%EA%B0%9C/)  
+ [아파치 톰캣 마이그레이션 가이드](https://tomcat.apache.org/migration-8.html){: target="_blank" }  
+ [톰캣 8.0 변경점](http://start.goodtime.co.kr/2014/02/%ED%86%B0%EC%BA%A3-8-%EC%86%8C%EA%B0%9C/){: target="_blank" }  
 
 
