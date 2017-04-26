@@ -990,19 +990,24 @@ em {
 	font-style: italic; }
 
 blockquote {
+    padding: .5rem 1rem;
+    margin: .8rem 0;
+    color: #7a7a7a;
+    border-left: .25rem solid #e5e5e5;
+}
+/*
+blockquote {
 	margin: 1em 0;
 	padding: 2em 0;
 	background: #f8f8f8;
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
-	font-family: "나눔고딕";
 	font-weight: lighter;
-	/*
 	font-family: "Roboto Slab", serif;
 	font-style: italic;
 	font-size: 1.3em;
-	*/
 	text-align: center; }
+*/	
 	blockquote p:last-child {
 		margin-bottom: 0; }
 
