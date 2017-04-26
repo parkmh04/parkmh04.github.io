@@ -44,7 +44,8 @@ tags: [Network]
 - 회원 삭제 URI : DELETE /system/member    
 
 ### 4. HTTP Status Code    
-:   HTTP Response 의 상태코드.    
+:   HTTP Response 의 상태코드.
+
 
 	- **1xx** - Informational - 정보교환영  
 	- **2xx** - Success - 성공(방식에 따라 다름)  
