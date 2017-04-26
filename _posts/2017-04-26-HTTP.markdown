@@ -72,11 +72,13 @@ Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: t
 ### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2    
 
 - **HTTP 1.0**    
+
 1. Client,  IP Adress가 1:1  
 2. 매번 필요시 Connection을 Open / Close  
 3. 하나의 Request/Response에 요청 신규 Connection 생성    
 
 - **HTTP 1.1**(HTTP 1.0 호환)    
+
 1. Client,  IP Adress가 1:N(하나의 IP Adress로 여러개의 WebSite 연결 가능, HTTP Request Header에 Host를 사용해야함.)  
 2. 필요시 Multi Connection을 Open / Close    
 3. 여러개의 Request/Response들이 기존 Connection 활용 가능    
@@ -85,6 +87,7 @@ Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: t
 6. HTTP Status Code 추가    
 
 - **HTTP 2.0**(HTTP 1.1 호환)    
+
 1. HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)  
 2. Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)  
 Ref : [HTTP의 변화](http://sejoong.github.io/dev/2015/02/15/dev/){: target="_blank" }
