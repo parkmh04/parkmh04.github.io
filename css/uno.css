@@ -982,6 +982,19 @@ h5 {
 p {
 	margin-bottom: 1.3em;
 	line-height: 1.7em; }
+	
+table {
+	border-top: .25rem solid #793ec3;
+	border-bottom: .25rem solid #793ec3;
+	line-height: 1.7em; }
+	
+th {
+	margin-bottom: 1.3em;
+	line-height: 1.7em; }	
+
+th {
+	margin-bottom: 1.3em;
+	line-height: 1.7em; }		
 
 strong {
 	font-weight: bold; }
