@@ -35,7 +35,7 @@ tags: [Basic Network]
     - OPTIONS : 웹서버가 지원하는 HTTP Mehtod 목록을 요청한다.
 	- TRACE : 클라이언트의 요청을 그대로 반환한다. 
    
-	![HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm)    
+	![Ref : HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm)    
   
 	- RESTFUL 과와 HTTP Method
 	  : 흔히 Restful API를 설계/개발한다고들 한다. Restful의 제약사항/목표는 여러가지 것들이 존재하지만, HTTP Method 관점에서 Restful하다는 것은
@@ -77,4 +77,6 @@ tags: [Basic Network]
    - HTTP 2.0(HTTP 1.1 호환)
     : HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)
 	  Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)
+	  
+	  ![Ref : HTTP의 변화](http://sejoong.github.io/dev/2015/02/15/dev/) 
 	
