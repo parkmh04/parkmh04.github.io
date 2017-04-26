@@ -57,26 +57,26 @@ tags: [Network]
 
 :   HTTP Response 의 상태코드.
   
-	- **1xx** - Informational - 정보교환  
-	- **2xx** - Success - 성공  
-	- **200** - OK	- 요청이 성공적으로 전송됨  
-	- **3xx** - Redirection - 방향 지정  
+	- **1xx** - Informational - 정보교환영  
+	- **2xx** - Success - 성공(방식에 따라 다름)  
+	- **200** - OK	- 성공  
+	- **3xx** - Redirection - 방향 지정(해당페이지로 이동합니다.)  
 	- **301** - Moved Permanently - 요청 페이지의 영구적인 위치 변화  
-	- **302** - Found	- 요청 페이지이 일시적인 위치 변화  
+	- **302** - Found	- 요청 페이지의 일시적인 위치 변화  
 	- **4xx** - Client Error - 클라이언트 오류  
-	- **404** - Not Found - 요청받은 자원을 서버에서 찾을 수 없을때 나타나는 상태   
+	- **404** - Not Found - 요청받은 자원을 서버에서 찾을 수 없을때 나타나는 상태  
 	- **405** - Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
 	- **5xx** - server Error - 서버 오류  
 		
 **4. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)**
 
-   - HTTP 1.0
+   - **HTTP 1.0**
    
      : Client,  IP Adress가 1:1
 	   매번 필요시 Connection을 Open / Close
 	   하나의 Request/Response에 요청 신규 Connection 생성
 
-   - HTTP 1.1(HTTP 1.0 호환)
+   - **HTTP 1.1**(HTTP 1.0 호환)
    
      : Client,  IP Adress가 1:N(하나의 IP Adress로 여러개의 WebSite 연결 가능, HTTP Request Header에 Host를 사용해야함.)  
 	   필요시 Multi Connection을 Open / Close    
@@ -85,7 +85,7 @@ tags: [Network]
 	   캐싱 기능 제공   
 	   상태코드 추가   
 
-   - HTTP 2.0(HTTP 1.1 호환)
+   - **HTTP 2.0**(HTTP 1.1 호환)
    
     : HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)
 	  Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)    
