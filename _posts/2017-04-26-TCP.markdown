@@ -149,12 +149,14 @@ TCP/IP 통신에서 TCP Segment는 IP의 Datagram(IP Packet)에 담겨서 전송
 IP에서 현재 대중화된 현재 대중화된 프로토콜은 IPv4이나, 주소공간의 고갈 문제가 있어 IPv6로 전환중에 있다.(IPv4 : 1.160.10.240 | IPv6 : 3ffe:1900:4545:3:200:f8ff:fe21:67cf)    
 
 ---
-Application 간 TCP/IP를 이용해 통신을 한다는 것은 결국, **전송할 Data를 Chunk단위로 나누어 TCP Header를 붙여 TCP Segment를 생성하고, 이것을 IP Datagram에 담아 전달하는 것**을 의미한다.  
-IP는 주소를 기반으로 데이터를 전송할 수 있게 하고, TCP는 전송하는 데이터의 손실을 검색하고 이를 교정하여 순서를 재조합할 수 있도록 한다. 또한 TCP/IP는 운영체제, 접속매체에 구애받지 않는다.  
+Application 간 TCP/IP를 이용해 통신을 한다는 것은 결국, **전송할 Data를 Chunk단위로 나누어 TCP Header를 붙여 TCP Segment를 생성하고, 이것을 IP Datagram에 담아 전달하는 것**을 의미한다.    
+
+IP는 주소를 기반으로 데이터를 전송할 수 있게 하고, TCP는 전송하는 데이터의 손실을 검색하고 이를 교정하여 순서를 재조합할 수 있도록 한다. 또한 TCP/IP는 운영체제, 접속매체에 구애받지 않는다.    
+
 이러한 특징으로 인해 HTTP, FTP, TELNET 등 TCP/IP를 기반으로 하는 수많은 프로토콜이 활용되고 있다.    
 
 ---
-Ref : 
+Ref :  
 [WIKI-TCP](https://ko.wikipedia.org/wiki/%EC%A0%84%EC%86%A1_%EC%A0%9C%EC%96%B4_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C){: target="_blank" }    
 [WIKI-IP](https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%EB%84%B7_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C){: target="_blank" }    
 [IP Datagram](http://blog.naver.com/PostView.nhn?blogId=twers&logNo=50117746348&categoryNo=14&viewDate=&currentPage=1&listtype=0){: target="_blank" }    
