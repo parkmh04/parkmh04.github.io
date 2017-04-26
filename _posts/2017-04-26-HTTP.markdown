@@ -9,7 +9,7 @@ tags: [Network]
 - HTTP는 웹환경에서 사용하는 TCP/IP 기반의 응용프로토콜이다. 
 - HTTP는 연결상태를 유지하지 않는 통신규약이다. (연결상태를 유지 - FTP, Telnet)
 - HTTP는 Request - Response가 1:1로 호환된다.(Sync)
-- HyperText의 의미는 데이터 자체를 전송하기보다는 링크기반으로 데이터에 접근하겠다는 의미이다.
+- HTTP에서 HyperText의 의미는 데이터 자체를 전송하기보다는 링크기반으로 데이터에 접근하겠다는 의미이다.
 - Client - Server 방식으로 동작한다.(요청과 응답)  
 ![HTTP](https://parkmh04.github.io/images/http.PNG)  
 
@@ -27,8 +27,7 @@ tags: [Network]
 
 : Method는 클라이언트의 요청방식이다.    
 
-일반적으로 HTTP POST, HTTP GET을 이용하여 개발을 진행한다.  그렇게 해도 상관없기 때문이다.  
-하지만 실제로 HTTP 규격에서는 HTTP의 Method를 아래와 같이 구분하고 있다.    
+일반적으로 HTTP POST, HTTP GET을 이용하여 개발을 진행한다.  그렇게 해도 상관없기 때문이다. 하지만 실제로 HTTP 규격에서는 HTTP의 Method를 아래와 같이 구분하고 있다.    
 
 - **GET**(SELECT) : 데이터를 요청한다.  
 - **POST**(INSERT) : 데이터를  삽입한다.  
@@ -49,18 +48,18 @@ Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: t
 
 ### 4. HTTP Status Code    
 
-:   HTTP Response 의 상태코드    
+:HTTP Response 의 상태코드    
 
-	- **1xx** : Informational - 정보교환영  
-	- **2xx** : Success - 성공(방식에 따라 다름)  
-	- **200** : OK	- 성공  
-	- **3xx** : Redirection - 방향 지정(해당페이지로 이동합니다.)  
-	- **301** : Moved Permanently - 요청 페이지의 영구적인 위치 변화  
-	- **302** : Found	- 요청 페이지의 일시적인 위치 변화  
-	- **4xx** : Client Error - 클라이언트 오류  
-	- **404** : Not Found - 요청받은 자원을 서버에서 찾을 수 없을때 나타나는 상태  
-	- **405** : Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
-	- **5xx** : server Error - 서버 오류    
+- **1xx** : Informational - 정보교환영  
+- **2xx** : Success - 성공(방식에 따라 다름)  
+- **200** : OK	- 성공  
+- **3xx** : Redirection - 방향 지정(해당페이지로 이동합니다.)  
+- **301** : Moved Permanently - 요청 페이지의 영구적인 위치 변화  
+- **302** : Found	- 요청 페이지의 일시적인 위치 변화  
+- **4xx** : Client Error - 클라이언트 오류  
+- **404** : Not Found - 요청받은 자원을 서버에서 찾을 수 없을때 나타나는 상태  
+- **405** : Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
+- **5xx** : server Error - 서버 오류    
 
 ### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2(HTTP 2.0)    
 
