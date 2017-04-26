@@ -995,11 +995,14 @@ blockquote {
 	background: #f8f8f8;
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
-	font-family: "Roboto Slab", serif;
+	font-family: "monaco";
 	font-weight: lighter;
+	/*
+	font-family: "Roboto Slab", serif;
 	font-style: italic;
 	font-size: 1.3em;
-	text-align: center; }
+	text-align: center;
+	*/	}
 	blockquote p:last-child {
 		margin-bottom: 0; }
 
