@@ -1,7 +1,7 @@
 ---
 title:  "[최소공배수 - Medium]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >

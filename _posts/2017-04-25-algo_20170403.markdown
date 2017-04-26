@@ -1,7 +1,7 @@
 ---
 title:  "[N 그리기 - Easy]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >

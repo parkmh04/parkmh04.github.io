@@ -1,7 +1,7 @@
 ---
 title:  "[소수 찾기 - Easy]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >

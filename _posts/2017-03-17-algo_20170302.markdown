@@ -1,7 +1,7 @@
 ---
 title:  "[숫자카운팅 - Easy]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >

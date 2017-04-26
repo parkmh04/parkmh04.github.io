@@ -1,7 +1,7 @@
 ---
 title:  "[시저의 암호 - Easy]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >

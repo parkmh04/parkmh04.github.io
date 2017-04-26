@@ -1,7 +1,7 @@
 ---
 title:  "[피보나치 수열 - Easy]"
-categories: [algorithm]
-tags: [algorithm]
+categories: [Algorithm]
+tags: [Algorithm]
 ---
 
 < 문제 >
