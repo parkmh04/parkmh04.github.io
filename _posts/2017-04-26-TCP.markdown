@@ -16,7 +16,7 @@ TCP 전송의 기본단위가 TCP Segment이며, Header와 Data로 구성된다.
 
 ![TCP Segment](https://parkmh04.github.io/images/TCP-segment.png)    
 
-**TCP Header**(TCP 전송에 필요한 Meta정보, WIKI 발췌)  
+**TCP Header**(TCP 전송에 필요한 Header정보, WIKI 발췌)  
 
 > **Source port**(16 비트)  
 : 송신 포트    
@@ -65,210 +65,97 @@ TCP 전송의 기본단위가 TCP Segment이며, Header와 Data로 구성된다.
 >**Padding**  
 : TCP 헤더 패딩은 TCP 헤더의 종료 지점과 데이터의 시작 지점을 32 비트 단위 길이에 맞추기 위해 사용된다. 패딩의 값은 0이다.    
 
-Application 간 TCP/IP를 이용해 통신을 한다는 것은 결국, **전송할 Data를 Chunk단위로 나누어 TCP Header를 붙여 TCP Segment를 생성하고, 이것을 IP Datagram에 담아 전달하는 것**을 의미한다.    
-
 ---
 ### 2. IP(Internet Protocol)    
 
 : 인터넷  프로토콜로, 송신호스트와 수신호스트가 데이터를 주고받는 데 사용하는 정보에 대한 프로토콜이다. Host의 주소지정과 Packet의 분할, 조립을 담당한다.  
 
-IP에서 Data는 Packet, Datagram으로 불리는 덩어리로 나뉘어서 전송된다. IP의 특징은 비신뢰성(unreliability)과 비연결성(connectionlessness)이다.    
+IP에서 Data는 Packet, Datagram으로 불리는 덩어리로 나뉘어서 전송된다. IP의 특징은 **비신뢰성**(unreliability)과 **비연결성**(connectionlessness)이다.    
 
-> **비신뢰성**  
+> **비신뢰성**(unreliability)  
 : 데이터의 전송이 성공했는지 모름, 전송한 패킷의 순서가 바뀔 수 있으며, 같은 패킷을 보낼 수도, 특정 패킷을 안보낼 수 도 있다.
 
-> **비연결성**  
+> **비연결성**(connectionlessness)  
 : 어떠한 사전 호출 / 연결 설정없이도 Host간의 데이터 전송이 가능하다. UDP도 동일한 속성을 가지고 있다.
 
 IP는 전송시에 Datagram을 이용하는 데, 아래와 같은 구조로 되어있다.  
-TCP/IP 통신에서 TCP Segment는 IP의 Datagram에 담겨서 전송된다.    
+TCP/IP 통신에서 TCP Segment는 IP의 Datagram(IP Packet)에 담겨서 전송된다.    
 
 ![IP Datagram](https://parkmh04.github.io/images/ip_datagram.png)    
 
-IP에서 현재 대중화된 현재 대중화된 프로토콜
+**IP Datagram Header**(IP 전송에 필요한 Header 정보, 네이버 블로그 [Just Blue] 발췌)  
 
- 특징이다. 비신뢰성은 흐름에 관여하지 않기 때문에 보낸 정보가 제대로 갔는지 보장하지 않는다는 뜻이다. 예를 들어 전송과정에서 패킷이 손상될 수도 있고, 같은 호스트에서 전송한 패킷의 순서가 뒤죽박죽이 될 수도 있고, 같은 패킷이 두 번 전송될 수도 있으며, 아예 패킷이 사라질 수도 있다. 패킷 전송과 정확한 순서를 보장하려면 TCP 프로토콜과 같은 IP의 상위 프로토콜을 이용해야 한다.
+> **버전**(Version)  
+- IP프로토콜의 버전을 의미(IPv4 = 0100, IPv6 = 0110)  
+- 버전에 따라 헤더 구성이 다르므로, 올바른 해석을 위해 IP버전 정보가 필요함  
+- 버전이 맞지 않은 경우에는 폐기함    
 
-현재 인터넷에서 사용하는 표준 프로토콜은 인터넷 프로토콜의 4번째 판인 IPv4이다. 그러나 IPv4는 주소공간 고갈 문제를 겪고 있어 조만간 6번째 판인 IPv6가 대중화될 것으로 보인다. 마이크로소프트 윈도 7, OS X, 리눅스 등 현재 널리 쓰이고 있는 대부분의 운영 체제는 IPv6 프로토콜을 지원한다.
+> **헤더길이**(Header Length)  
+- 4바이트 단위로 표현  
+- 표현가능한 길이 : (2^4 - 1) x 4 (바이트단위) = 60  
+- 헤더 최소길이 : 20바이트 (헤더길이 부분에 들어가는 실제값 = 5 word)  
+- 헤더 최대길이 : 60바이트 (헤더길이 부분에 들어가는 실제값 = 15 word)    
 
+> **서비스타입**(Differentiated Services)  
+- QoS 제공을 위해 사용함  
+  * QoS : Quality of Service의 약어로, 인터넷이나 네트워크 상에서 전송율, 에러율과 관련된 서비스 품질을 의미    
 
-
-
-**IP Header**(TCP 전송에 필요한 Meta정보, WIKI 발췌)  
-
-
-
-
-버전(Version)
-  - IP프로토콜의 버전을 의미
-    = IPv4 = 0100, IPv6 = 0110
-  - 버전에 따라 헤더 구성이 다르므로, 올바른 해석을 위해 IP버전 정보가 필요함
-  - 버전이 맞지 않은 경우에는 폐기함
+> **전체길이** (Total Length)  
+- 헤더와 데이터 길이를 합한 길이  
+- 전체길이의 최대값 : 2^16 - 1 = 65,535  
+- 데이터 길이 = 전체길이 - 헤더길이  
+  * 헤더길이 20 ~ 60바이트  
+- 전체길이 필드가 필요한 이유 : 실제 데이터와 패딩을 구분해야 하기 때문임    
  
-헤더길이(Header Length)
-  - 4바이트 단위로 표현
-  - 표현가능한 길이 : (2^4 - 1) x 4 (바이트단위) = 60
-  - 헤더 최소길이 : 20바이트 (헤더길이 부분에 들어가는 실제값 = 5)
-  - 헤더 최대길이 : 60바이트 (헤더길이 부분에 들어가는 실제값 = 15)
-    * 실제값은 4바이트 단위로 들어감
+> **식별자**(Identification)  
+- 데이터그램이 단편화되어 전송된 후, 재조립할 때 이용됨  
+- 식별자 필드는 중복되지 않아야 함 = 유일해야 함  
+- 카운터를 이용해 데이터그램을 보낼때 마다 카운터 값을 1씩 증가  
+- 모든 단편화된 단편의 헤더에는 식별자 필드가 포함    
  
-서비스타입(Differentiated Services)
-  - QoS 제공을 위해 사용함
-    * QoS : Quality of Service의 약어로, 인터넷이나 네트워크 상에서 전송율, 에러율과
-                관련된 서비스 품질을 의미함
+>**플래그**(Flag)  
+- 데이터그램의 상태나 진위를 나타내기 위한 변수  
+- 데이터그램의 헤더에 들어가는 플래그는 D와 M으로 구성  
+  * D : Do not Fragment (D값이 1이면 단편화를 하지 않고, 0이면 단편화를 함)  
+  * M : More Fragment (M값이 1이면 마지막 단편이 아님, 0이면 마지막 단편임)    
  
-전체길이 (Total Length)
-  - 헤더와 데이터 길이를 합한 길이
-  - 전체길이의 최대값 : 2^16 - 1 = 65,535
-  - 데이터 길이 = 전체길이 - 헤더길이
-    * 헤더길이 20 ~ 60바이트
-  - 전체길이 필드가 필요한 이유 : 실제 데이터와 패딩을 구분해야 하기 때문임
+> **단편옵셋**(Fragmentation Offset)  
+- 단편화 되기 전 데이터 시작점으로 부터의 차이  
+- 즉, 전체 데이터그램에서 단편에 포함된 데이터의 시작 위치  
+- 8바이트 단위로 표시  
+>> 전체길이 필드가 16비트라서, 단편옵셋도 16비트 만큼 표시가 가능해야 하지만 3비트를 플래그 표시에 사용했으므로, 남은 13비트로 16비트를 표현하기 위해  
+  *예) 첫번째 단편의 옵셋 값은 0 : 첫번째 단편이므로 시작 위치가 0임  
+  *예) 두번째 단편부터는 이전에 단편화된 길이를 8로 나누어 계산 : 만약, 첫번째가 800바이트였다면 두번째 단편화 옵셋 값은 100    
  
-식별자(Identification)
-  - 데이터그램이 단편화되어 전송된 후, 재조립할 때 이용됨
-  - 식별자 필드는 중복되지 않아야 함 = 유일해야 함
-  - 카운터를 이용해 데이터그램을 보낼때 마다 카운터 값을 1씩 증가
-  - 모든 단편화된 단편의 헤더에는 식별자 필드가 포함
- 
-플래그(Flag)
-  - 데이터그램의 상태나 진위를 나타내기 위한 변수
-  - 데이터그램의 헤더에 들어가는 플래그는 D와 M으로 구성
-    = D : Do not Fragment (D값이 1이면 단편화를 하지 않고, 0이면 단편화를 함)
-    = M : More Fragment (M값이 1이면 마지막 단편이 아님, 0이면 마지막 단편임)
- 
-단편옵셋(Fragmentation Offset)
-  - 단편화 되기 전 데이터 시작점으로 부터의 차이
-  - 즉, 전체 데이터그램에서 단편에 포함된 데이터의 시작 위치
-  - 8바이트 단위로 표시
-    = 전체길이 필드가 16비트라서, 단편옵셋도 16비트 만큼 표시가 가능해야 하지만
-       3비트를 플래그 표시에 사용했으므로, 남은 13비트로 16비트를 표현하기 위해
-  - 예) 첫번째 단편의 옵셋 값은 0
-    = 첫번째 단편이므로 시작 위치가 0임
-  - 예) 두번째 단편부터는 이전에 단편화된 길이를 8로 나누어 계산
-    = 만약, 첫번째가 800바이트였다면 두번째 단편화 옵셋 값은 100
- 
-수명(Time to Live)
-  - 데이터그램의 수명제한을 위해 사용
-  - 데이터그램들의 송수신 과정에서 상위계층 프로토콜을 혼란시킬 수 있으므로,
-     수명제한을 통해 오래된 데이터그램은 폐기
-  - 홉 수로 수명이 표시
-    = 라우터가 데이터크램을 처리할 때마다 수명값은 1홉씩 감소
-    = 0이 되면, 라우터에서 데이터그램 폐기
-  - 송신지에서 수명 값을 지정하여 송신
-    = 일반적으로 예상 경로에 속한 라우터 수의 두배 만큼 지정
-    = 만약 1로 지정할 경우 데이터그램은 라우터를 벗어나지 못하고 폐기됨
- 
-프로토콜(Protocol)
-  - 데이터그램을 처리한 후, 전달될 상위프로토콜을 표시
-  - IP프로토콜은 다양한 상위프로토콜을 다중화, 역다중화하기 때문에 필요
- 
-검사합(Checksum)
-  - 수신한 데이타그램 내의 에러여부 확인
- 
-발신지주소(Source Address)
-  - 발신지의 IP주소
- 
-목적지주소(Destination Address)
-  - 목적지의 IP주소
-[출처] IP (Internet Protocol) - 데이터그램 (Datagram)|작성자 Just Blue
+> **수명**(Time to Live)  
+- 데이터그램의 수명제한을 위해 사용  
+- 데이터그램들의 송수신 과정에서 상위계층 프로토콜을 혼란시킬 수 있으므로, 수명제한을 통해 오래된 데이터그램은 폐기  
+- 홉 수로 수명이 표시됨, 라우터가 데이터크램을 처리할 때마다 수명값은 1홉씩 감소, 0이 되면, 라우터에서 데이터그램 폐기  
+- 송신지에서 수명 값을 지정하여 송신, 반적으로 예상 경로에 속한 라우터 수의 두배 만큼 지정(만약 1로 지정할 경우 데이터그램은 라우터를 벗어나지 못하고 폐기됨)    
 
+> **프로토콜**(Protocol)  
+- 데이터그램을 처리한 후, 전달될 상위프로토콜을 표시  
+- IP프로토콜은 다양한 상위프로토콜을 다중화, 역다중화하기 때문에 필요    
 
-로 분할한 뒤 TCP 헤더를 덧붙여 TCP 세그먼트를 생성한다. TCP 세그먼트는 IP 데이터그램에 캡슐화되어 상대방과 주고 받게 된다.
-TCP 패킷이라는 용어가 종종 사용되지만 이는 정확한 표현이 아니다. 세그먼트가 TCP 프로토콜 데이터 유닛(PDU)을 의미하는 정확한 표현이며 데이터그램[3] 은 IP PDU를, 프레임은 데이터 링크 계층 PDU를 의미한다.
-프로세스는 TCP를 통해 데이터 버퍼를 인수로 넘겨 줌으로써 데이터를 전송한다. TCP는 이 버퍼들을 묶어 세그먼트를 생성하여 인터넷 모듈(IP 등)을 통해 목적지의 TCP로 각각의 세그먼트들을 전송한다.
-TCP 세그먼트는 세그먼트 헤더와 데이터의 두 섹션으로 구성된다. TCP 헤더는 10개의 필수 필드 및 옵션 확장 필드(표 하단의 주황색 부분)들을 포함한다.
+> **검사합**(Checksum)  
+- 수신한 데이타그램 내의 에러여부 확인    
 
-헤더 뒤에는 데이터 섹션이 따라 온다. 그 내용은 애플리케이션의 페이로드 데이터이다. 데이터 섹션의 길이는 TCP 세그먼트 헤더에서 결정되지 않으며, 전체 IP 데이터그램의 길이에서 TCP 헤더와 캡슐화된 IP 헤더의 길이를 뺀 값으로 계산하게 된다. 즉, 데이터 섹션의 길이는 IP 헤더에 의해 결정된다.
+> **발신지주소**(Source Address)  
+- 발신지의 IP주소    
 
+> **목적지주소**(Destination Address)  
+- 목적지의 IP주소    
 
-- HTTP는 웹환경에서 사용하는 TCP/IP 기반의 응용프로토콜이다. 
-- HTTP는 연결상태를 유지하지 않는 통신규약이다. (연결상태를 유지 - FTP, Telnet)
-- HTTP는 Request - Response가 1:1로 호환된다.(Sync)
-- HTTP에서 HyperText의 의미는 데이터 자체를 전송하기보다는 링크기반으로 데이터에 접근하겠다는 의미이다.
-- Client - Server 방식으로 동작한다.(요청과 응답)    
-
-![HTTP](https://parkmh04.github.io/images/http.PNG)    
+IP에서 현재 대중화된 현재 대중화된 프로토콜은 IPv4이나, 주소공간의 고갈 문제가 있어 IPv6로 전환중에 있다.(IPv4 : 1.160.10.240 | IPv6 : 3ffe:1900:4545:3:200:f8ff:fe21:67cf)    
 
 ---
-## 2. Connectless Protocol
-
-: HTTP는 클라이언트가 서버에 요청하고, 응답을 받으면 연결을 유지하지 않고 끊어버린다. 이러한 방식으로 인해 하기와 같은 특징이 있다.    
-
-- **장점** : 불특정 다수를 대상으로 서비스가 가능하다. 계속해서 새로운 클라이언트와 연결하고 연결을 해지하기 때문에 더 많은 클라이언트의 요청을 처리할 수 있다.    
-
-- **단점** : 요청한 클라이언트와의 이전 요청에 대한 결과 등과 같은 클라이언트의 이전상태를 알 수 없다. 로그인 세션 등의 정보를 유지할 수 없다.    
-
-따라서 Cookie를 사용하여 클라이언트의 이전상태를 확인한다.Cookie는 클라이언트와 서버의 상태 정보를 가지고 있기 때문이다.(DB를 이용하여 클라이언트 정보와 상태를 저장하기도 한다.)    
+Application 간 TCP/IP를 이용해 통신을 한다는 것은 결국, **전송할 Data를 Chunk단위로 나누어 TCP Header를 붙여 TCP Segment를 생성하고, 이것을 IP Datagram에 담아 전달하는 것**을 의미한다.  
+IP는 주소를 기반으로 데이터를 전송할 수 있게 하고, TCP는 전송하는 데이터의 손실을 검색하고 이를 교정하여 순서를 재조합할 수 있도록 한다. 또한 TCP/IP는 운영체제, 접속매체에 구애받지 않는다.  
+이러한 특징으로 인해 HTTP, FTP, TELNET 등 TCP/IP를 기반으로 하는 수많은 프로토콜이 활용되고 있다.    
 
 ---
-### 3. HTTP Method    
-
-: Method는 클라이언트의 요청방식이다.    
-
-일반적으로 HTTP POST, HTTP GET을 이용하여 개발을 진행한다.  그렇게 해도 상관없기 때문이다. 하지만 실제로 HTTP 규격에서는 HTTP의 Method를 아래와 같이 구분하고 있다.    
-
-- **GET**(SELECT) : 데이터를 요청한다.  
-- **POST**(INSERT) : 데이터를  삽입한다.  
-- **PUT**(UPDATE) : 데이터를 업데이트한다.  
-- **DELETE**(DELETE) : 데이터를 삭제한다.  
-- **HEAD**(CHECK) : HTTP  Header 정보만 요청한다. 해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해서 사용한다.  
-- **OPTIONS** : 웹서버가 지원하는 HTTP Mehtod 목록을 요청한다.  
-- **TRACE** : 클라이언트의 요청을 그대로 반환한다.    
-
-Ref : [HTTP의 Method](https://www.tutorialspoint.com/http/http_methods.htm){: target="_blank" }    
-
----
-- **RESTFUL 과 HTTP Method**    
-: 흔히 Restful API를 설계/개발한다고들 한다. Restful의 제약사항/목표는 여러가지 것들이 존재하지만, HTTP Method 관점에서 Restful하다는 것은 HTTP Method들을 원래의 목적에 맞게 사용하는 것을 의미한다.    
-
-1. **회원 가입 URI** : [POST] /admin/member    
-2. **회원 수정 URI** : [PUT] /admin/member    
-3. **회원 조회 URI** : [GET] /admin/member    
-4. **회원 삭제 URI** : [DELETE] /admin/member    
-
----
-### 4. HTTP Status Code    
-
-: HTTP Response 의 상태코드    
-
-- **1xx** : Informational - 정보교환영  
-- **2xx** : Success - 성공(방식에 따라 다름)  
-- **200** : OK	- 성공  
-- **3xx** : Redirection - 방향 지정(해당페이지로 이동합니다.)  
-- **301** : Moved Permanently - 요청 페이지의 영구적인 위치 변화  
-- **302** : Found	- 요청 페이지의 일시적인 위치 변화  
-- **4xx** : Client Error - 클라이언트 오류  
-- **404** : Not Found - 요청받은 자원을 서버에서 찾을 수 없을때 나타나는 상태  
-- **405** : Method Not Allowed - 서버에서 사용자가 요청한 주소의 메소드를 지원하지 않을때 나타남  
-- **5xx** : server Error - 서버 오류    
-
----
-### 5. HTTP 1.0  VS HTTP 1.1 VS HTTP/2    
-  
-- **HTTP 1.0**    
-
-1. Client,  IP Adress가 1:1  
-2. 매번 필요시 Connection을 Open / Close  
-3. 하나의 Request/Response에 요청 신규 Connection 생성    
-
-- **HTTP 1.1**(HTTP 1.0 호환)    
-
-1. Client,  IP Adress가 1:N(하나의 IP Adress로 여러개의 WebSite 연결 가능, HTTP Request Header에 Host를 사용해야함.)  
-2. 필요시 Multi Connection을 Open / Close    
-3. 여러개의 Request/Response들이 기존 Connection 활용 가능    
-4. OPTION HTTP Method 지원    
-5. 캐싱 기능 제공   
-6. HTTP Status Code 추가    
-
-- **HTTP 2.0**(HTTP 1.1 호환)    
-
-1. HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)  
-2. Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)  
-Ref : [HTTP의 변화](http://sejoong.github.io/dev/2015/02/15/dev/){: target="_blank" }
-
-
 Ref : 
 [WIKI-TCP](https://ko.wikipedia.org/wiki/%EC%A0%84%EC%86%A1_%EC%A0%9C%EC%96%B4_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C){: target="_blank" }    
 [WIKI-IP](https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%EB%84%B7_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C){: target="_blank" }    
 [IP Datagram](http://blog.naver.com/PostView.nhn?blogId=twers&logNo=50117746348&categoryNo=14&viewDate=&currentPage=1&listtype=0){: target="_blank" }    
-[HTTP의 변화](http://sejoong.github.io/dev/2015/02/15/dev/){: target="_blank" }    
+[TCP/IP 개론](https://www.joinc.co.kr/w/Site/Network_Programing/Documents/IntroTCPIP){: target="_blank" }    
