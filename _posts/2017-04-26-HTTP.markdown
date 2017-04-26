@@ -86,9 +86,10 @@ tags: [Network]
 	   상태코드 추가   
 
    - **HTTP 2.0**(HTTP 1.1 호환)
-   
-    : HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)
-	  Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)    
-	  Ref :
+  
+    : HTTP Header 데이터 압축(웹페이지 렌더링 시 요청 횟수를 줄여줌)  
+	  Server Push 추가(Client 요청 없이 Server에서 Resource 제공 가능)
+  
+	  Ref :  
 	  ![HTTP의 변화](http://sejoong.github.io/dev/2015/02/15/dev/) 
 	
