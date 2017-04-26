@@ -984,17 +984,26 @@ p {
 	line-height: 1.7em; }
 	
 table {
-	border-top: .25rem solid #793ec3;
-	border-bottom: .25rem solid #793ec3;
-	line-height: 1.7em; }
+	    width: 100%;
+    border-collapse: collapse;
+    border: solid #ddd;
+    border-width: 1px 1px 2px;
+    margin: 1em 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-clip: padding-box; }
 	
 th {
-	margin-bottom: 1.3em;
-	line-height: 1.7em; }	
+	font-weight: 700;
+    color: #325d72;
+    background-color: #eee; }	
 
 td {
-	margin-bottom: 1.3em;
-	line-height: 1.7em; }		
+	border: solid #ddd;
+    border-width: 1px;
+    padding: 10px;
+    vertical-align: top; }		
 
 strong {
 	font-weight: bold; }
