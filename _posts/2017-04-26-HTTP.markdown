@@ -11,7 +11,7 @@ tags: [Network]
 - HTTP는 연결상태를 유지하지 않는 통신규약이다. (연결상태를 유지 - FTP, Telnet)
 - HTTP는 Request - Response가 1:1로 호환된다.(Sync)
 - HTTP에서 HyperText의 의미는 데이터 자체를 전송하기보다는 링크기반으로 데이터에 접근하겠다는 의미이다.
-- Client - Server 방식으로 동작한다.(요청과 응답)  
+- Client - Server 방식으로 동작한다.(요청과 응답)    
 ---
 ![HTTP](https://parkmh04.github.io/images/http.PNG)  
 
