@@ -61,7 +61,7 @@ OSI 7 Layer의 목적은 서로 이질적인 네트워크 장비 및 어플리�
 ### 2. OSI VS TCP/IP    
 OSI는 ISO에 모델로 제안한 것이며, TCP/IP 모델의 경우 미국방성에서 ARPANET 프로젝트를 진행하여 탄생하게 된다.    
 
-간단하게 생각하면 TCP/IP 모델은 OSI 7 Layer를 4개의 계층으로 압축시킨 것이라고 할 수 있다. 결국 계층을 어떻게 분리하는가에 대한 차이일뿐이다.
+간단하게 생각하면 TCP/IP 모델은 OSI 7 Layer를 4개의 계층으로 압축시킨 것이라고 할 수 있다. 결국 계층을 어떻게 분리하는가에 대한 차이일뿐이다.    
 
 ![OSI VS TCP/IP](https://parkmh04.github.io/images/TCP-IP-model-vs-OSI-model.png)    
 
