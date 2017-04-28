@@ -992,7 +992,8 @@ table {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background-clip: padding-box; }
+    background-clip: padding-box;
+    font-size: 0.5em;	}
 	
 th {
 	border: solid #ddd;
