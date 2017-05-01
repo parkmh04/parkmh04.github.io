@@ -73,7 +73,10 @@ ex. HTTP Header : Accept : Application/Json, HTTP Header를 이용할 경우, �
 : HTTP Header의 Accept-Language를 이용하여 다국어지원을 받을 수 있어야한다.    
 
 ---
-결론적으로 RESTFUL API는 ROA에 입각하여, HTTP를 충실히 활용한 웹 API이다. 모든 Resource를 표현하는 데 있어, 접근은 하나의 URI로만 가능하도록 엄격히 관리되어야 하며, Client 입장에서는 하나의 URI만으로 모든 표현이 가능하도록 쉽게 파악되어야 한다.
+결론적으로 RESTFUL API는 ROA에 입각하여, HTTP를 충실히 활용한 웹 API이다.    
+
+모든 Resource를 표현하는 데 있어, 접근은 하나의 URI로만 가능하도록 엄격히 관리되어야 하며, Client 입장에서는 하나의 URI만으로 모든 표현이 가능하도록 쉽게 파악되어야 한다.    
+
 RESTFUL하게 작성된 API는 쉽게 이용이 가능하며, 확장이 용이하다. 또한 각 모듈별로 나뉘어서 재사용이 가능하다. 결국 유지/보수가 용이하며, 전체적인 아키텍처 설계에 비용절감의 효과가 있을 수 있겠다.    
 
 ---
