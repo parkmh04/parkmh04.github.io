@@ -11,11 +11,10 @@ tags: [Network]
 REST를 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.    
 
 > **ROA**(Resource Oriented Architecture)  
-: Resource 중심의 네트워크 설계이다.  
-모든 서비스는 특정 Resource에 대한 접근이며, URI는 이러한 Resouce 들에 대한 유일한 접근점이다.    
+: Resource 중심의 네트워크 설계이다. 모든 서비스는 특정 Resource에 대한 접근이며, **URI는 이러한 Resouce 들에 대한 유일한 접근점**이다.    
 
 > **URI**(Uniform Resource Identifier)  
-: 자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.    
+: 자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 **URL**(Uniform Resource Locator)이다.    
 
 ROA는 다음과 같은 특징을 가지고 있다.    
 
