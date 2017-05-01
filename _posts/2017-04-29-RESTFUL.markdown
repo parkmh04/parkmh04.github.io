@@ -46,13 +46,17 @@ RESTFUL하다는 것은 REST사상(REST+ROA)의 기준/가이드를 충실히 �
 : URI는 Resource를 식별한다. 또한 Resource들간의 관계를 표현한다. 따라서 URI 작성시에는 동작에 해당하는 동사보다는 명사를 이용하여 표현하고, 동작은 HTTP Method를 사용하도록 한다.    
 
 > **URI로 표현되는 Resource 접근법**  
-1.. Resource 조회
+
+- **Resource 조회**  
 HTTP GET : http://host:port/api/company/employees  
-2. Resource 추가
+
+- **Resource 추가**  
 HTTP POST : http://host:port/api/company/employees  
-3. Resource 수정
+
+- **Resource 수정**  
 HTTP PUT(PATCH) : http://host:port/api/company/employees  
-4. Resource 삭제
+
+- **Resource 삭제**  
 HTTP DELETE : http://host:port/api/company/employees    
 
 - Client와 Server는 서로 독립적이며, 하나의 Server가 다양한 Client에 모두 대응할 수 있다.  
