@@ -10,11 +10,12 @@ tags: [Network]
 
 REST를 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.    
 
-> **ROA**(Resource Oriented Architecture)  
-
-: Resource 중심의 네트워크 설계이다.  
+> **ROA**(Resource Oriented Architecture)    
+: Resource 중심의 네트워크 설계이다.    
 모든 서비스는 특정 Resource에 대한 접근이며, URI는 이러한 Resouce 들에 대한 유일한 접근점이다.    
 
+> **URI**(Uniform Resource Identifier)    
+: 자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.    
 ROA는 다음과 같은 특징을 가지고 있다.    
 
 **1. Addressablilty**  
@@ -35,9 +36,6 @@ company/employees/myungha-park/phone?key="xxsasaqweqw"
 
 **4. Homogeneous Interface**  
 : HTTP에서 제공하는 Method를 이용하여, Resource의 모든 동작을 정의한다. 특정 Resource에 대한 접근은 오로지 하나의 URI로만 접근하며, 동작의 구분은 HTTP Method를 통해서 구분한다.    
-
-> **URI**(Uniform Resource Identifier)    
-: 자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.    
 
 따라서 REST사상에 기반한 웹 서비스 아키텍처 설계란, 결국 웹 서비스에서 제공하는 모든 Resource들에 대한 접근점을 하나의 URI로 표현하고, 이를 HTTP란 수단을 통해서 전달하는 것을 의미한다.
 RESTFUL하다는 것은 REST사상(REST+ROA)의 기준/가이드를 충실히 준수하는 웹 아키텍처 설계라고 할 수 있겠다.
