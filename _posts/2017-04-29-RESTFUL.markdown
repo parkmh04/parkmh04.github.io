@@ -47,14 +47,11 @@ RESTFUL하다는 것은 REST사상(REST+ROA)의 기준/가이드를 충실히 �
 
 > **URI로 표현되는 Resource 접근법**  
 - **Resource 조회**  
-HTTP GET : http://host:port/api/company/employees  
-
+HTTP GET : http://host:port/api/company/employees    
 - **Resource 추가**  
-HTTP POST : http://host:port/api/company/employees  
-
+HTTP POST : http://host:port/api/company/employees    
 - **Resource 수정**  
-HTTP PUT(PATCH) : http://host:port/api/company/employees  
-
+HTTP PUT(PATCH) : http://host:port/api/company/employees    
 - **Resource 삭제**  
 HTTP DELETE : http://host:port/api/company/employees    
 
