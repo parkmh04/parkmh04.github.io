@@ -19,23 +19,23 @@ REST를 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.
 
 ROA는 다음과 같은 특징을 가지고 있다.    
 
-**1. Addressablilty**  
+- **Addressablilty**  
 : 제공하는 모든 Resource는 URI로 표현이 가능하다.    
 ex. 박명하란 사원에 대한 URI > Http://host:port/api/company/employees/myungha-park    
 
-**2. Connectedness**  
+- **Connectedness**  
 : Resource들이 서로 연관되어 있을 경우, URI 또한 서로 연관지어서 표현한다.    
 ex. company/employees/myungha-park/name,    
     company/employees/myungha-park/phone    
 
-**3. Statelessness**  
+- **Statelessness**  
 : Client의 상태를 Server에서 관리하지 않으며 모든 요청은 1회성이다.으로 설계한다. 따라서 매 요청마다 필요한 정보를 계속해서 전달해야한다.  
 ex. 요청에 사용자 인증정보가 필요한 경우, 아래와 같이 할 수 있다. 
 key = "접근이 허용된 사용자에게 발급되는 식별키"를 이용하여 API 설계시..  
 company/employees/myungha-park/name?key="xxsasaqweqw"  
 company/employees/myungha-park/phone?key="xxsasaqweqw"    
 
-**4. Homogeneous Interface**  
+- **Homogeneous Interface**  
 : HTTP에서 제공하는 Method를 이용하여, Resource의 모든 동작을 정의한다. 특정 Resource에 대한 접근은 오로지 하나의 URI로만 접근하며, 동작의 구분은 HTTP Method를 통해서 구분한다.    
 
 따라서 REST사상에 기반한 웹 서비스 아키텍처 설계란, 결국 웹 서비스에서 제공하는 모든 Resource들에 대한 접근점을 하나의 URI로 표현하고, 이를 HTTP란 수단을 통해서 전달하는 것을 의미한다.
