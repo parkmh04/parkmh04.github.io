@@ -42,7 +42,8 @@ company/employees/myungha-park/phone?key="xxsasaqweqw"
 RESTFUL하다는 것은 REST사상(REST+ROA)의 기준/가이드를 충실히 준수하는 웹 아키텍처 설계라고 할 수 있겠다.
 
 ### 2. RESTFULL하게 설계하기    
-- Resource에 대한 URI는 동사보다는 명사를 이용하여 표현한다.
+
+- **Resource에 대한 URI는 동사보다는 명사를 이용하여 표현한다.**  
 : URI는 Resource를 식별한다. 또한 Resource들간의 관계를 표현한다. 따라서 URI 작성시에는 동작에 해당하는 동사보다는 명사를 이용하여 표현하고, 동작은 HTTP Method를 사용하도록 한다.    
 
 > **URI로 표현되는 Resource 접근법**  
@@ -59,17 +60,17 @@ HTTP PUT(PATCH) : http://host:port/api/company/employees
 - **Resource 삭제**  
 HTTP DELETE : http://host:port/api/company/employees    
 
-- Client와 Server는 서로 독립적이며, 하나의 Server가 다양한 Client에 모두 대응할 수 있다.  
-: Session과 같은 Client의 상태정보를 Server부터 독립하여, 서로 독립적인 관계를 유지하도록 한다. 따라서 매 요청은 연속적이지 않고, 서로 독립적이다. 매 요청이 독립적이기 때문에, 인증/권한에 대한 정보는 매번 Server로 요청되어야 한다. 대부분의 Open API의 경우, 다양한 방식의 인증정보를 제공하며, 매 요청시 해당정보를 Request에 포함하도록 하고 있다. 
+- **Client와 Server는 서로 독립적이며, 하나의 Server가 다양한 Client에 모두 대응할 수 있다.**  
+: Session과 같은 Client의 상태정보를 Server부터 독립하여, 서로 독립적인 관계를 유지하도록 한다. 따라서 매 요청은 연속적이지 않고, 서로 독립적이다. 매 요청이 독립적이기 때문에, 인증/권한에 대한 정보는 매번 Server로 요청되어야 한다. 대부분의 Open API의 경우, 다양한 방식의 인증정보를 제공하며, 매 요청시 해당정보를 Request에 포함하도록 하고 있다.    
 
-- Client가 원하는 데이터를 제공한다.
-: 각각의 Client들은 서로 다른 방식으로 Resource를 사용한다.(JSON, XML). 따라서 Servers 동일한 Resource에 대하여, Client에서 요청한 형태로 표현할 수 있어야한다. Server는 Request의 HTTP Header 를 통해서 Resource의 표현방식을 결정한다.
-ex. HTTP Header : Accept : Application/Json, HTTP Header를 이용할 경우, 하나의 URI로 다양한 형태의 Resource에 요청을 처리할 수 있게된다.
+- *Client가 원하는 데이터를 제공한다.**  
+: 각각의 Client들은 서로 다른 방식으로 Resource를 사용한다.(JSON, XML). 따라서 Servers 동일한 Resource에 대하여, Client에서 요청한 형태로 표현할 수 있어야한다. Server는 Request의 HTTP Header 를 통해서 Resource의 표현방식을 결정한다.  
+ex. HTTP Header : Accept : Application/Json, HTTP Header를 이용할 경우, 하나의 URI로 다양한 형태의 Resource에 요청을 처리할 수 있게된다.    
 
-- 반응형 웹 환경에서도 동일한 URI를 제공한다. 
-: Client의 Device type 차이로 인해 반환되어야하는 Resource의 형태가 달라진다 하더라도(ex. www.naver.com, m.naver.com), Resource 자체가 동일한 경우, 하나의 URI로 처리한다. HTTP Header의 User-agent를 이용할  경우, 하나의 URI를 이용해도 반응형 웹의 처리가 가능하다.
+- **반응형 웹 환경에서도 동일한 URI를 제공한다.**  
+: Client의 Device type 차이로 인해 반환되어야하는 Resource의 형태가 달라진다 하더라도(ex. www.naver.com, m.naver.com), Resource 자체가 동일한 경우, 하나의 URI로 처리한다. HTTP Header의 User-agent를 이용할  경우, 하나의 URI를 이용해도 반응형 웹의 처리가 가능하다.    
 
-- 다양한 언어를 동일한 URI로 제공한다.
+- **다양한 언어를 동일한 URI로 제공한다.**  
 : HTTP Header의 Accept-Language를 이용하여 다국어지원을 받을 수 있어야한다.    
 
 ---
