@@ -1,0 +1,56 @@
+---
+title:  "RESTFUL"
+categories: [Network]
+tags: [Network]
+---
+
+### 1. REST(Representational State Transfer)    
+
+: REST는 굉장히 포괄적인 개념이기 때문에, 여러가지 의미로 해석되지만, 사실 그 자체로 아키텍처인 것은 아니다. 하지만 대부분 REST라는 개념을 URI와 HTTP를 이용하여 객체화된 웹서비스 자원에 접근하는 것으로 이해하고 있다. 이것은 REST의 사상에 *ROA를 접목하여 이해하고 있기 때문이다.
+따라서 REST를 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.    
+
+> **ROA**(Resource Oriented Architecture) :    
+Resource 중심의 네트워크 설계이다. 모든 서비스는 특정 Resource에 대한 접근이다. 따라서 ROA는 URI를 Resource들의 접근점으로 제시한다.  
+ROA는 다음과 같은 특징을 가지고 있다.
+1. Addressablilty
+: 제공하는 모든 Resource는 URI로 표현이 가능하다. URI를 통해 해당 Resourece에 접근이 가능하다.
+2. Connectedness
+: Resource들이 서로 연관되어 있을 경우, URI 또한 서로 연관지어서 표현이 가능하다.(company/employees/myungha-park/name, company/employees/myungha-park/phone)
+3. Statelessness
+: Client의 상태정보를 Server에서 관리하지 않아야 한다. 모든 요청은 1회성이다. 따라서 매 요청마다 필요한 정보를 계속해서 전달해야한다.
+4. Homogeneous Interface
+: HTTP에서 제공하는 Method를 이용하여, Resource의 모든 동작을 정의한다.
+
+> **URI**(Uniform Resource Identifier) :    
+자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.
+
+따라서 REST사상에 기반한 웹 서비스 아키텍처 설계란, 결국 웹 서비스에서 제공하는 모든 Resource들에 대한 접근점을 URI로 표현하고, 이를 HTTP란 수단을 통해서 전달하는 것을 의미한다.
+RESTFUL은 이러한 REST 사상을 충실히 준수하는 웹 아키텍처 설계라고 볼 수도 있겠다.
+
+### 2. REST의 특징     
+: REST는 Resource에 대한 접근점으로 URI를 제공한다. 비록 그 행위가 다를지라도 동일한 Resource에 대한 접근은 하나의 URI를 통해야만 한다. 이를 위해서 HTTP의 Method를 적극 활용한다.
+
+> **URI로 표현되는 Resource 접근법**  
+- Resource 조회
+HTTP GET : http://host:port/api/company/employees  
+- Resource 추가
+HTTP POST : http://host:port/api/company/employees  
+- Resource 수정
+HTTP PUT(PATCH) : http://host:port/api/company/employees  
+- Resource 삭제
+HTTP DELETE : http://host:port/api/company/employees    
+
+- RSET는 URI에 HTTP Method를 충실히 사용함으로써 모든 행위/동작을 URI를 통해서 유추가 가능하도록 한다. 
+- REST는 다양한 Client에 모두 대응할 수 있도록 해야한다.(Client의 정보는 HTTP Header를 통해서 Server에 전달된다. )
+- REST는 HTTP Header 혹은 URI를 통해 전달하려는 Resource를 사전에 정의된 방식으로 표현한다.(ex. HTTP Header Accept : Application/Json, URI http://host:port/api/company/employees/myungha-park.json)
+
+---
+Ref :  
+[Resource Oriented Architecture](http://greatkim91.tistory.com/13){: target="_blank" }    
+[REST란 무엇인가](http://egloos.zum.com/killins/v/3092502){: target="_blank" }    
+[RESTFUL이란? ](http://sonim1.tistory.com/105){: target="_blank" }    
+[RESTFUL이란 무엇인가](http://blog.remotty.com/blog/2014/01/28/lets-study-rest/){: target="_blank" }    
+[RESTFUL API란 무엇인가](http://lalwr.blogspot.kr/2016/01/restful.html){: target="_blank" }    
+[REST 아키텍처를 훌륭하게 적용하기 위한 몇가지 디자인 팁](https://spoqa.github.io/2012/02/27/rest-introduction.html){: target="_blank" }    
+[RESTFUL API를 설계하기 위한 디자인 팁](https://spoqa.github.io/2013/06/11/more-restful-interface.html){: target="_blank" }    
+
