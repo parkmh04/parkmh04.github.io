@@ -6,23 +6,35 @@ tags: [Network]
 
 ### 1. REST(Representational State Transfer)    
 
-: REST는 굉장히 포괄적인 개념이기 때문에, 여러가지 의미로 해석되지만, 사실 그 자체로 아키텍처인 것은 아니다. 하지만 대부분 REST라는 개념을 URI와 HTTP를 이용하여 객체화된 웹서비스 자원에 접근하는 것으로 이해하고 있다. 이것은 REST의 사상에 *ROA를 접목하여 이해하고 있기 때문이다.
-따라서 REST를 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.    
+: REST는 굉장히 포괄적인 개념이기 때문에, 여러가지 의미로 해석되지만, 사실 그 자체로 아키텍처인 것은 아니다. 하지만 대부분 REST라는 개념을 URI와 HTTP를 이용하여 객체화된 웹서비스 자원에 접근하는 것으로 이해하고 있다.    
 
-> **ROA**(Resource Oriented Architecture) :    
-Resource 중심의 네트워크 설계이다. 모든 서비스는 특정 Resource에 대한 접근이다. 따라서 ROA는 URI를 Resource들의 접근점으로 제시한다.  
-ROA는 다음과 같은 특징을 가지고 있다.
-1. Addressablilty
-: 제공하는 모든 Resource는 URI로 표현이 가능하다. URI를 통해 해당 Resourece에 접근이 가능하다.
-2. Connectedness
-: Resource들이 서로 연관되어 있을 경우, URI 또한 서로 연관지어서 표현이 가능하다.(company/employees/myungha-park/name, company/employees/myungha-park/phone)
-3. Statelessness
-: Client의 상태정보를 Server에서 관리하지 않아야 한다. 모든 요청은 1회성이다. 따라서 매 요청마다 필요한 정보를 계속해서 전달해야한다.
-4. Homogeneous Interface
-: HTTP에서 제공하는 Method를 이용하여, Resource의 모든 동작을 정의한다.
+이것은 REST의 사상에 *ROA를 접목하여 이해하고 있기 때문이다. 따라서 REST 사상을 이해하기 위해서는 먼저 *ROA와 *URI를 짚어봐야한다.    
 
-> **URI**(Uniform Resource Identifier) :    
-자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.
+> **ROA**(Resource Oriented Architecture)    
+: Resource 중심의 네트워크 설계이다. 모든 서비스는 특정 Resource에 대한 접근이다. 따라서 ROA는 URI를 Resource들의 접근점으로 제시한다.    
+
+ROA는 다음과 같은 특징을 가지고 있다.    
+
+1. **Addressablilty**  
+: 제공하는 모든 Resource는 URI로 표현이 가능하다. Resourece에 대한 접근은 URI만을 이용한다.
+ex. 박명하란 사원에 대한 접근 URI > Http://host:port/api/company/employees/myungha-park    
+
+2. **Connectedness**  
+: Resource들이 서로 연관되어 있을 경우, URI 또한 서로 연관지어서 표현한다.  
+ex. company/employees/myungha-park/name,  
+    company/employees/myungha-park/phone    
+
+3. **Statelessness**  
+: Client의 상태정보를 Server에서 관리하지 않아야 한다. 모든 요청은 1회성으로 설계한다. 따라서 매 요청마다 필요한 정보를 계속해서 전달해야한다.  
+ex. key = "접근이 허용된 사용자에게 발급되는 식별키"를 이용하여 API 설계시..  
+company/employees/myungha-park/name?key="xxsasaqweqw"  
+company/employees/myungha-park/phone?key="xxsasaqweqw"    
+
+4. **Homogeneous Interface**  
+: HTTP에서 제공하는 Method를 이용하여, Resource의 모든 동작을 정의한다. 특정 Resource에 대한 접근은 오로지 하나의 URI로만 접근하며, 동작의 구분은 HTTP Method를 통해서 구분한다.    
+
+> **URI**(Uniform Resource Identifier)    
+: 자원을 식별하기 위한 고유의 값이다. 웹서비스 환경에서 가장 보편적으로 쓰이는 형태는 URL(Uniform Resource Locator)이다.
 
 따라서 REST사상에 기반한 웹 서비스 아키텍처 설계란, 결국 웹 서비스에서 제공하는 모든 Resource들에 대한 접근점을 URI로 표현하고, 이를 HTTP란 수단을 통해서 전달하는 것을 의미한다.
 RESTFUL은 이러한 REST 사상을 충실히 준수하는 웹 아키텍처 설계라고 볼 수도 있겠다.
