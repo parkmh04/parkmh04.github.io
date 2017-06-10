@@ -56,7 +56,7 @@ JVM의 동작원리를 살펴보기 위해서는 JVM의 특성과 JVM의 구조�
 
 JAVA Compiler(Javac.exe)에 의해 Complie된 ByteCode(.class)들은 JVM의 ClassLoader System에 의해 Load 되고, Execution Engine에서 이 Class들을 한 줄 씩으로 읽어서 해석(Interpret)한다.  
 
-Exceution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Area)에 할당되게 되는데, 그 역할에 따라 저장되는 영역과 방법이 달라지게 된다.
+Execution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Area)에 할당되게 되는데, 그 역할에 따라 저장되는 영역과 방법이 달라지게 된다.
 
 > **Class Loader**  
 - JVM 시작시 Bootstrap Class Loder와 그 자식 Class Loader들을 생성하고, Object를 비롯한 Java Class들을 **Loading**한다.  
@@ -66,7 +66,7 @@ Exceution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Ar
 **Class Loader Structure**  
 ![ClassLoader_Structure](https://parkmh04.github.io/images/JVM/ClassLoader_Structure.png)    
 
-> **Exceution Engine**  
+> **Execution Engine**  
 - ByteCode를 Line 단위로 읽고 해석(ByteCode를 기계어로 변환)하여 실행한다.  
 - 한 줄씩 읽어서 실행하는 단점으로 인해 JIT(Just-in-Time) Complier를 사용하기도 한다. 다만 모든 Java Class에 JIT를 사용하지는 않는다(비용이 많이 듬)    
 
