@@ -148,6 +148,8 @@ public class Test {
 ### 4. Heap & GC    
 Heap Area는 크게 Young Generation, Old Generation, Permanent Generation으로 구분된다.  
 
+![JVM_Memory_Structure](https://parkmh04.github.io/images/JVM/JVM_Heap.png)    
+
 > **Permanent Generation**  
 - JVM Structure의 Method Area(Static Area)에 해당한다.  
 
@@ -156,43 +158,48 @@ Heap Area는 크게 Young Generation, Old Generation, Permanent Generation으로
 - Young Generation의 객체가 참조가 해제되면(접근 불가능 상태, unreachable), GC(Minor)가 일어난다.  
 - Young Generation의 객체가 일정시간 이상 참조가 유지되면 Old Generation 으로 이동한다.    
 
-Young Generation의 경우, 3개의 영역으로 구분할 수 있다.
-- Eden : 새롭게 생성된 객체의 대부분이 저장된다.
-- Survivor 0/1 : Minor GC 이후 남은 Eden의 객체가 저장된다. 하나의 Survior가 가득 차게 되면 GC가 일어나게 되며, 살아남은 나머지 객체들은 다른 Survior 객체로 이동한다. 하나의 Survior 영역이 가득 차기 전까지 다른 Survior 영역은 비워진 상태로 존재한다. Survivor 영역 간을 오가는 객체가 시간이 지나면 Old Generation으로 이동한다.    
-
-![Minor GC](https://parkmh04.github.io/images/JVM/MINOR_GC.png)    
-
 > **Old Generation**  
 - 참조가 유지되는 객체들 중 오래된 객체가 저장되는 영역이다.  
 - Old Generation에서는 일반적으로  데이터가 가득차면 GC(Major, Full)가 일어난다.  
-- 보통 Young Generation보다 Old Generation의 할당된 크기가 크기 때문에, GC의 시간이 길다.  
+- 보통 Young Generation보다 Old Generation의 할당된 크기가 크기 때문에, GC의 시간이 길다.    
 
-일반적으로 프로젝트 수행시 GC Pattern에 대한 고민과 결정은 SWA들의 몫으로 인식되지만, 이지만, 개발
+Heap Area에 저장된 모든 객체들은 언젠가는 운명을 맞이하는 데, 이를 Garbage Collection이 일어난다고 표현한다.  
+C의 경우 변수에 할당된 메모리를 소스코드상에서 임의로 해제가 가능하지만, JAVA에서는 Garbage Collector가 스스로 할당된 메모리를 해제하기 때문에, 개발자가 신경 쓸 필요가 없다는 장점이 있다.  
+다만, GC가 일어나는 동안은 GC를 수행하는 Thread를 제외하고는 모든 Thread들이 대기하므로, 너무 잦은 GC의 발생은 시스템의 성능에 영향을 줄 수 있다.  
+좋은 JAVA 개발자는 GC를 고려하여 개발을 해야한다고 한다.(어렵다...)    
 
+Young Generation의 경우, 2개의 영역(실제로는 3개)으로 구분할 수 있다.    
 
+> **Eden**  
+: 새롭게 생성된 객체의 대부분이 저장된다.    
 
+> **Survivor**  
+: Minor GC 이후 남은 Eden의 객체가 저장된다. 하나의 Survior가 가득 차게 되면 GC가 일어나게 되며, 살아남은 나머지 객체들은 다른 Survior 객체로 이동한다. 하나의 Survior 영역이 가득 차기 전까지 다른 Survior 영역은 비워진 상태로 존재한다. Survivor 영역 간을 오가는 객체가 시간이 지나면 Old Generation으로 이동한다.    
 
+**Minor GC에 따른 Young Generation의 변화**  
+![Minor GC](https://parkmh04.github.io/images/JVM/MINOR_GC.png)    
 
+Old Generation에서 일어나는 GC를 Major GC, Full GC라고 하는데, Major GC를 수행하는 다양한 패턴이 존재한다.  
 
+> **Serial GC**(-XX:+UseSerialGC)  
+: Heap Area의 객체들 중 유효한 객체를 식별하고, 순차적으로 삭제한다. 살아남은 객체들은 Heap Area의 앞에서부터 채운다.    
 
-앞서 명시한 것처럼 Heap은 Runtime시에 Type의 Instance와 Array가 저장된다. 더이상 참조하는 변수가 없는 객체들은 GC(Garbage Collection)의 대상이 되는데, GC는 Heap에 데이터가 계속 쌓여 OOM(Out of Memory)이 발생하지 않도록 할당된 메모리를 제거하는 것을 의미한다.    
+> **Parallel GC**(Throughput GC, -XX:+UseParallelGC)  
+: Serial GC와 동작방식이 동일하나, GC를 수행하는 Thread가 여러개다.    
 
-C의 경우 소스코드에서 변수에 할당된 메모리를 임의로 해제가능하지만, JAVA에서는 Garbage Collector가 스스로 할당된 메모리를 해제하기 때문에, 개발자가 신경 쓸 필요가 없다는 장점이 있다.  
+> **Parallel Old GC**(-XX:+UseParallelOldGC)  
+: Parallel GC의 동작이 개선된 방식이다. JDK 1.7.4 이상부터는 Parallel GC와 Parallel Old GC가 동일하게 동작하게 된다.    
 
-다만, GC가 일어나는 동안은 GC를 수행하는 Thread를 제외하고는 모든 Thread들이 대기하므로, 개발자 입장에서는 GC가 너무 잦게 혹은 너무 길게 일어나지 않도록 해야한다.  
+> **CMS GC**(Low Latency GC, -XX:+UseConcMarkSweepGC)  
+: Heap Area의 객체들 중 유효한 객체들을 식별하는 단계를 나눠서(식별, 확인)한다. 유효한 객체들이 실제로 참조하는 객체들이 있는지 확인할 때는 다른 Thread들이 멈추지 않는다. 식별이 종료되면, 유효하지 않은 객체들을 삭제하는 데, 이 과정에서도 다른 Thread 들이 멈추지 않는다. 오직 최초에 유효한 객체를 식별하는 과정에서만 Thread들의 동작이 멈추기 때문에, GC로 인한 지연이 최소화된다. 다만 소모하는 자원이 많다.    
 
-Heap Area에 Data는 다음과 같은 순서로 저장된다.  
-Young Generation > Old Generation
+> **G1 GC**  
+: Young, Old의 구분없이 전체 Heap Area를 바둑판 형태로 분할하여 사용하다, 해당 영역이 꽉차면 바둑판의 다른 영역에 유효한 객체를 할당하고, 해당 영역에 대해서 GC를 수행한다. JAVA 7부터 정식으로 포함되었다. 성능적인 면에서 우수하다.    
 
+---
 
-
-정보가 저장이
-Young Generation: 이 영역은 자바 객체가 생성되자마자 저장되고, 생긴지 얼마 안되는 객체가 저장되는 공간이다. 시간이 지나 우선순위가 낮아지면 Old 영역으로 옮겨진다. 이 영역에서 객체가 사라질 때 Minor GC가 발생한다.
-Old(Tenured) Generation: Young Generation 영역에서 저장되었던 객체 중에 오래된 객체가 이동되어 저장되는 영역이다. 이 영역에서 객체가 사라질 때 Major GC(Full GC)가 발생한다.
-Permanent Generation: 클래스 로더에 의해 로든되는 클래스, 메소드 등에 대한 메타 정보가 저장되는 영역으로 JVM에 의해 사용된다. 리플렉션을 사용하여 동적으로 클래스가 로딩되는 경우에 사용된다. 내부적으로 리플렉션 기능을 자주 사용하는 Spring Framework를 이용할 경우 이 영역에 대한 고려가 필요하다.
-
-![JVM_Memory_Structure](https://parkmh04.github.io/images/JVM/JVM_Heap.png)    
-
+지금까지 JVM에서부터 GC까지 알아보았다.  
+개발자로써 JVM의 구조나 동작원리를 이해하고 개발한다면, 보다 효율적인 시스템의 개발이 용이해질 것이라 생각한다.
 
 ---
 
@@ -208,5 +215,6 @@ Ref :
 [훈마로의 보물창고 - 자바 메모리 구조](http://hoonmaro.tistory.com/19){: target="_blank" }    
 [자바에 메모리가 저장되는 구조와 원리](http://jhleed.tistory.com/36){: target="_blank" }    
 [자바 메모리 구조](http://myeonguni.tistory.com/60){: target="_blank" }    
-[NAVER GC](http://myeonguni.tistory.com/60){: target="_blank" }    
+[NAVER GC](http://d2.naver.com/helloworld/1329){: target="_blank" }    
+[NAVER GC 튜닝](http://d2.naver.com/helloworld/37111){: target="_blank" }    
 
