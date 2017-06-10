@@ -58,9 +58,9 @@ JAVA Compiler(Javac.exe)에 의해 Complie된 ByteCode(.class)들은 JVM의 Clas
 Exceution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Area)에 할당되게 되는데, 그 역할에 따라 저장되는 영역과 방법이 달라지게 된다.
 
 > **Class Loader**  
-- JVM 시작시 Bootstrap Class Loder와 그 자식 Class Loader들을 생성하고, Object를 비롯한 Java Class들을 Loading한다. 
-- Load된 Class가 JAVA 명세에 맞는 지 **검사**한다. 
-- Class가 필요로 하는 메모리를 할당하고, Class의 변수, 함수, 인터페이스를 구조화하여 Runtime Data Area에 보관한다.    
+- JVM 시작시 Bootstrap Class Loder와 그 자식 Class Loader들을 생성하고, Object를 비롯한 Java Class들을 **Loading**한다. 
+- Load된 Class가 JAVA 명세에 맞는 지 **Verify**한다. 
+- Class가 필요로 하는 메모리를 할당하고, Class의 변수, 함수, 인터페이스를 구조화하여 Runtime Data Area에 **Store**한다.    
 ![ClassLoader_Structure](https://parkmh04.github.io/images/JVM/ClassLoader_Structure.png)    
 
 > **Exceution Engine**  
@@ -68,7 +68,9 @@ Exceution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Ar
 - 한 줄씩 읽어서 실행하는 단점으로 인해 JIT(Just-in-Time) Complier를 사용하기도 한다. 다만 모든 Java Class에 JIT를 사용하지는 않는다(비용이 많이 듬)    
 
 > **Runtime Data Area**(JVM Memory)  
-- Class Loader에 의해 Loading된 Class들은 그 구분에 따라 서로 다른 JVM Memory에 저장된다. JVM Memory는 크게 6개의 영역으로 구분한다.
+- JVM은 OS로부터 메모리를 할당받아, Runtime Data Area를 생성하고 사용한다.   
+- Class Loader에 의해 Loading된 Class들은 그 구분에 따라 서로 다른 JVM Memory에 보관된다.  
+- JVM Memory는 크게 6개의 영역으로 구분한다.  
 
 ---
 
@@ -84,5 +86,7 @@ Ref :
 [NAVER JVM Internal](http://d2.naver.com/helloworld/1230){: target="_blank" }    
 [JD-Clipse Home](http://jd.benow.ca/){: target="_blank" }    
 [JAVA의 Class Loader](http://javacan.tistory.com/entry/1){: target="_blank" }    
-[RESTFUL API를 설계하기 위한 디자인 팁](https://spoqa.github.io/2013/06/11/more-restful-interface.html){: target="_blank" }    
+[Oracle JVM 명세](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html){: target="_blank" }    
+[RESTFUL API를 설계하기 위한 디자인 팁](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html){: target="_blank" }    
+[RESTFUL API를 설계하기 위한 디자인 팁](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html){: target="_blank" }    
 
