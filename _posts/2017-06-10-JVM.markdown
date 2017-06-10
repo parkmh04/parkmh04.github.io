@@ -27,7 +27,7 @@ JAVA의 Byte Code 어떻게 생겼는지 궁금할 경우, Debugging 해보면 �
 > ByteCode Viewer의 경우, Complie된 Byte Code를 JAVA Code로 Decompile하여 볼 수도 있고, Hexa Code, Byte Code 형태로 Debugging 할 수 있는 강력한 Tool이다.  
 ByteCode Viewer는 http://bytecodeviewer.com/ 에서 다운받을 수 있다.    
 
-**Byte Code Viewer **  
+**Byte Code Viewer**  
 ![ByteCode View home](https://parkmh04.github.io/images/JVM/BytecodeViewer_home.png)    
 
 > ByteCode View를 실행하면, 다음과 같은 화면이 나타난다.  
@@ -40,9 +40,9 @@ ByteCode Viewer는 http://bytecodeviewer.com/ 에서 다운받을 수 있다.
 
 > ByteCode Viewer를 이용할 경우, JVM이 실행하는 ByteCode를 Dubugging할 수 있으며, 악성코드의 포함여부를 확인하는 것이 가능하다.(한글 보기 지원함)  
 
-Byte Code는 기계어에 비해 Decompile이 쉽기 때문에, 악용되는 사례도 많다. 따라서 APP과 같이 외부에 노출되는 프로그램은 반드시 난독화를 적용해야 한다.    
+Byte Code는 기계어에 비해 Decompile이 쉽기 때문에, 악용되는 사례도 많다. 따라서 APP과 같이 **외부에 노출되는 프로그램은 반드시 난독화를 적용해야 한다.**    
 
-**Byte Code를 활용하는 2가지 자세**    
+**Byte Code를 활용하는 선인과 악인**    
 **박XX** : Exception Class의 구조가 궁금하네, JD-Eclipse로 공부해봐야겠다. :)  
 **성XX** : 우헤헤. 요즘 벌이도 시원찮은데, 저 게임을 내가 베껴서 돈 벌어야겠다. 우헤헤.    
 
@@ -55,12 +55,15 @@ JVM의 동작원리를 살펴보기 위해서는 JVM의 특성과 JVM의 구조�
 ![JVM_Structure](https://parkmh04.github.io/images/JVM/JVM_Structure.png)  
 
 JAVA Compiler(Javac.exe)에 의해 Complie된 ByteCode(.class)들은 JVM의 ClassLoader System에 의해 Load 되고, Execution Engine에서 이 Class들을 한 줄 씩으로 읽어서 해석(Interpret)한다.  
+
 Exceution Engine에서 해석된 ByteCode들은 JVM의 메모리(Runtime Data Area)에 할당되게 되는데, 그 역할에 따라 저장되는 영역과 방법이 달라지게 된다.
 
 > **Class Loader**  
-- JVM 시작시 Bootstrap Class Loder와 그 자식 Class Loader들을 생성하고, Object를 비롯한 Java Class들을 **Loading**한다. 
-- Load된 Class가 JAVA 명세에 맞는 지 **Verify**한다. 
+- JVM 시작시 Bootstrap Class Loder와 그 자식 Class Loader들을 생성하고, Object를 비롯한 Java Class들을 **Loading**한다.  
+- Load된 Class가 JAVA 명세에 맞는 지 **Verify**한다.  
 - Class가 필요로 하는 메모리를 할당하고, Class의 변수, 함수, 인터페이스를 구조화하여 Runtime Data Area에 **Store**한다.    
+
+**Class Loader Structure**  
 ![ClassLoader_Structure](https://parkmh04.github.io/images/JVM/ClassLoader_Structure.png)    
 
 > **Exceution Engine**  
