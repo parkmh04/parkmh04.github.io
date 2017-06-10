@@ -4,7 +4,7 @@ categories: [JAVA]
 tags: [JAVA]
 ---
 
-### 1. JVM(Java Vertual Machine)    
+### 1. JVM(Java Virtual Machine)    
 
 : JAVA를 배우게 되면, 제일 먼저 듣는 이야기가 바로 **WORA**(WORA : Write Once Run Anywhere) 사상이다. WORA는 JAVA Code가 JVM 기반에서 실행되기 때문에, 멀티 플랫폼(Windows, Mac. Linux, Unix, OS X 등) 환경에서 하나의 Code로 작성된 프로그램의 동작을 보장한다는 것을 의미한다.    
 
@@ -151,7 +151,6 @@ public class Test {
 ### 4. Heap & GC    
 Heap Area는 Young Generation, Old Generation, Permanent Generation으로 구분한다.  
 ![JVM_Memory_Structure](https://parkmh04.github.io/images/JVM/JVM_Heap.png)  
-
 > **Permanent Generation**  
 - JVM Structure의 Method Area(Static Area)에 해당한다.  
 
@@ -198,11 +197,6 @@ Old Generation에서 일어나는 GC를 Major GC 혹은 Full GC라고 하는데,
 
 > **G1 GC**  
 - Young, Old의 구분없이 전체 Heap Area를 바둑판 형태로 분할하여 사용하다, 해당 영역이 꽉차면 바둑판의 다른 영역에 유효한 객체를 할당하고, 해당 영역에 대해서 GC를 수행한다. JAVA 7부터 정식으로 포함되었다. 성능적인 면에서 우수하다.    
-
----
-
-지금까지 JVM에서부터 GC까지 알아보았다.  
-개발자로써 계속해서 성장하기 위해서는 자신이 지금 개발하고 있는 언어에 대한 보다 깊은 이해가 필요하다.  
 
 ---
 
