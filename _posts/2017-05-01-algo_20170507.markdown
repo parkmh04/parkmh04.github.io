@@ -1,0 +1,230 @@
+---
+title:  "[2진트리 저장 - Medium]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+ ``` java
+/**
+ * <PRE>
+ * 1. 개요
+ * 
+ * 이진트리 구조는 RootNode가 2개의 하위 Node를 가지고, 하위 Node가 또 2개의 하위 Node를 갖는, 확장 구조이다.
+ * 이진트리에 데이터를 저장하고 출력하는 알고리즘을 완성해야한다.
+ * 
+ * 규칙
+ * - 첫번째 입력된 값은 Root Node의 값이 된다.
+ * - 두번째 이후로 입력된 값들은 RootNode의 하위 Node들에 저장된다.
+ * - 입력된 값들이 해당 Node의 값보다 작은 경우 왼쪽 하위 Node에 저장된다.
+ * - 입력된 값들이 해당 Node의 값보다 큰 경우 오른 하위 Node에 저장된다.
+ * - 저장하려는 Node에 값이 이미 있는 경우 해당 Node의 하위 Node에 값을 저장한다.(재귀적 호출 필요)
+ *
+ * 2. 예상결과
+ * 
+ * Lv 0: 30
+ *		Lv 1: 27
+ *			Lv 2: 14
+ *				Lv 3: 10
+ *					Lv 4: null
+ *					Lv 4: null
+ *				Lv 3: 20
+ *					Lv 4: 19
+ *						Lv 5: null
+ *						Lv 5: null
+ *					Lv 4: null
+ *			Lv 2: null
+ *		Lv 1: 39
+ *			Lv 2: 32
+ *				Lv 3: null
+ *				Lv 3: null
+ *			Lv 2: 41
+ *				Lv 3: null
+ *				Lv 3: null
+ *
+ * </PRE>
+ *
+ * @author    박명하
+ */
+public class Test07 {
+
+	public static void main( String[] args ) {
+
+		try {
+			// STEP 1. TEST 데이터 준비
+			Tree tree = new Tree();
+			tree.addNode( 30 );
+			tree.addNode( 27 );
+			tree.addNode( 14 );
+			tree.addNode( 39 );
+			tree.addNode( 41 );
+			tree.addNode( 10 );
+			tree.addNode( 20 );
+			tree.addNode( 32 );
+			tree.addNode( 19 );
+
+			// STEP 2. 결과 출력
+			tree.printAllNode();
+
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * Node Class
+	 * 하나의 Node는 Value와 하위 Node 2개(이진트리)를 갖는다.
+	 * </PRE>
+	 */
+	public static class Node {
+		// Node Value
+		private int value = 0;
+		
+		// Node Value 보다 작은 값이 저장되는 하위 Node
+		private Node left = null;
+
+		// Node Value 보다 큰 값이 저장되는 하위 Node
+		private Node right = null;
+
+		public int getValue() {
+			return value;
+		}
+
+		public void setValue( int value ) {
+			this.value = value;
+		}
+
+		public Node getLeft() {
+			return left;
+		}
+
+		public void setLeft( Node left ) {
+			this.left = left;
+		}
+
+		public Node getRight() {
+			return right;
+		}
+
+		public void setRight( Node right ) {
+			this.right = right;
+		}
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * 이진 트리 구조 Class
+	 * </PRE>
+	 */
+	public static class Tree {
+		private Node root = null;
+
+		/**
+		 * 
+		 * <PRE>
+		 * Tree에 Value를 추가
+		 * </PRE>
+		 * 
+		 * @param value : 추가하려는 값
+		 */
+		public void addNode( int value ) {
+			// STEP 1. root Node가 없는 경우
+			if ( root == null ) {
+				Node node = new Node();
+				node.setValue( value );
+				root = node;
+
+			// STEP 2. root Node가 있는 경우				
+			} else {
+				addNode( value, root );
+			}
+		}
+
+		/**
+		 * 
+		 * <PRE>
+		 * 특정 Node에 Value를 추가
+		 * </PRE>
+		 * 
+		 * @param value : 추가하려는 값
+		 * @param node : 대상 Node
+		 */
+		public void addNode( int value, Node node ) {
+
+			// STEP 1. 추가하려는 값이 Node의 값보다 작은 경우
+			if ( value < node.value ) {
+
+				// STEP 1-1. 왼쪽 Node 가 Null이면 새로운 Node를 추가한다.
+				if ( node.getLeft() == null ) {
+					Node leftNode = new Node();
+					leftNode.setValue( value );
+					node.setLeft( leftNode );
+
+				// STEP 1-2. 왼쪽 Node 가 Null이 아니면 하위 Node로 이동한다.	
+				} else {
+					addNode( value, node.getLeft() );
+				}
+
+			// STEP 2. 추가하려는 값이 Node의 값보다 큰 경우	
+			} else {
+
+				// STEP 2-1. 오른쪽 Node 가 Null이면 새로운 Node를 추가한다.
+				if ( node.getRight() == null ) {
+					Node rightNode = new Node();
+					rightNode.setValue( value );
+					node.setRight( rightNode );
+
+				// STEP 2-2. 오른쪽 Node 가 Null이 아니면 하위 Node로 이동한다.	
+				} else {
+					addNode( value, node.getRight() );
+				}
+			}
+		}
+
+		/**
+		 * 
+		 * <PRE>
+		 * 전체 Tree의 Node들을 출력한다. 
+		 * </PRE>
+		 *
+		 */
+		public void printAllNode() {
+
+			// STEP 1. RootNode가 있는 경우
+			if ( root != null ) {
+				printNode( root, 0 );
+
+			// STEP 2. RootNode가 없는 경우	
+			} else {
+				System.out.println( "Node is None." );
+			}
+		}
+
+		/**
+		 * 
+		 * <PRE>
+		 * Node들을 Hierarchy 구조로 출력한다.
+		 * </PRE>
+		 * 
+		 * @param node : 출력할 Node
+		 * @param cnt : 출력 level
+		 */
+		public void printNode( Node node, int cnt ) {
+			for ( int inx = 0 ; inx < cnt ; inx++ ) {
+				System.out.print( "\t" );
+			}
+			if ( node != null ) {
+				System.out.println( "Lv " + cnt + ": " + node.getValue() );
+				cnt++;
+				printNode( node.getLeft(), cnt );
+				printNode( node.getRight(), cnt );
+			} else {
+				System.out.println( "Lv " + cnt + ": null" );
+			}
+		}
+	}
+
+}
+```

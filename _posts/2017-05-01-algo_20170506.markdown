@@ -1,0 +1,81 @@
+---
+title:  "[7에 가까운 정수 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+ ``` java
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Arrays;
+
+/**
+ * <PRE>
+ * [7에 가장 가까운 정수 찾기]
+ * 
+ * 10개의 정수가 저장된 배열에서 7에 가장 가까운 정수를 찾아서 출력한다.
+ * 배열에 기억되어 있는 순서에 따라 10개의 정수와 7과의 차이값을 구하여 그 차이값 중 가장 최소값을 가지는 정수를 7에 가장 가까운 값으로 선택하여 출력하라.
+ * (단, 배열에 기억된 10개의 데이터는 절대값이 500이하의 랜덤한 정수라고 가정한다.)
+ * 
+ * <실행결과>
+ * Random 배열 : [106, 204, -75, 0, 33, 421, -223, -27, 376, 11]
+ * 7에 가장 가까운 정수 : 11
+ * 
+ * </PRE>
+ *
+ * @author    성시찬D
+ */
+public class Test06 {
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		process();
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	  * 
+	 * <PRE>
+	 * 
+	 * 절대값이 500 이하인 랜덤배열을 생성하고, 그 중 7과 가장 가까운 수를 찾아서 출력한다.
+	 * (랜덤하게 생성한 배열도 출력한다.)
+	 * 
+	 * </PRE>
+	 * @throws NoSuchAlgorithmException 
+	 * 
+	 */
+	public static void process() {
+		// STEP 1. 결과데이터 준비
+		int minGap = 507; // 랜덤수가 -500이라면 제일 먼거리는 507
+		int minGapNum = 0; // 7과 가장 가까운 수
+
+		try {
+			SecureRandom random = SecureRandom.getInstance( "SHA1PRNG" );
+
+			// STEP 1. 절대값 500 이하의 랜덤배열 생성
+			int[] randomArray = new int[10];
+			for ( int inx = 0 ; inx < 10 ; inx++ ) {
+				randomArray[inx] = random.nextInt( 1001 ) - 500; // 0 ~ 1000 >> -500 ~ 500
+			}
+			System.out.println( "Random 배열 : " + Arrays.toString( randomArray ) );
+
+			// STEP 2. 7에 가장 가까운 수를 찾는다.
+			for ( int inx = 0 ; inx < 10 ; inx++ ) {
+				int tmpGap = Math.abs( randomArray[inx] - 7 );
+				if ( tmpGap < minGap ) {
+					minGap = tmpGap;
+					minGapNum = randomArray[inx];
+				}
+			}
+			// STEP 3. 출력
+			System.out.println( String.format( "7 에 가장 가까운 정수 : %d", minGapNum ) );
+		} catch ( NoSuchAlgorithmException e ) {
+			e.printStackTrace();
+		}
+	}
+}
+```
