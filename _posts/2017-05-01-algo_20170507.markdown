@@ -9,7 +9,8 @@ tags: [Algorithm]
  * <PRE>
  * 1. 개요
  * 
- * 이진트리 구조는 RootNode가 2개의 하위 Node를 가지고, 하위 Node가 또 2개의 하위 Node를 갖는, 확장 구조이다.
+ * 이진트리 구조는 RootNode가 2개의 하위 Node를 가지고, 
+ * 하위 Node가 또 2개의 하위 Node를 갖는, 확장 구조이다.
  * 이진트리에 데이터를 저장하고 출력하는 알고리즘을 완성해야한다.
  * 
  * 규칙
@@ -17,7 +18,7 @@ tags: [Algorithm]
  * - 두번째 이후로 입력된 값들은 RootNode의 하위 Node들에 저장된다.
  * - 입력된 값들이 해당 Node의 값보다 작은 경우 왼쪽 하위 Node에 저장된다.
  * - 입력된 값들이 해당 Node의 값보다 큰 경우 오른 하위 Node에 저장된다.
- * - 저장하려는 Node에 값이 이미 있는 경우 해당 Node의 하위 Node에 값을 저장한다.(재귀적 호출 필요)
+ * - 저장하려는 Node에 값이 이미 있는 경우 해당 Node의 하위 Node에 값을 저장한다.
  *
  * 2. 예상결과
  * 
@@ -156,13 +157,13 @@ public class Test07 {
 			// STEP 1. 추가하려는 값이 Node의 값보다 작은 경우
 			if ( value < node.value ) {
 
-				// STEP 1-1. 왼쪽 Node 가 Null이면 새로운 Node를 추가한다.
+				// STEP 1-1. 왼쪽 Node 가 Null이면 새로운 Node 추가
 				if ( node.getLeft() == null ) {
 					Node leftNode = new Node();
 					leftNode.setValue( value );
 					node.setLeft( leftNode );
 
-				// STEP 1-2. 왼쪽 Node 가 Null이 아니면 하위 Node로 이동한다.	
+				// STEP 1-2. 왼쪽 Node 가 Null이 아니면 하위 Node 이동
 				} else {
 					addNode( value, node.getLeft() );
 				}
@@ -170,13 +171,13 @@ public class Test07 {
 			// STEP 2. 추가하려는 값이 Node의 값보다 큰 경우	
 			} else {
 
-				// STEP 2-1. 오른쪽 Node 가 Null이면 새로운 Node를 추가한다.
+				// STEP 2-1. 오른쪽 Node 가 Null이면 새로운 Node 추가
 				if ( node.getRight() == null ) {
 					Node rightNode = new Node();
 					rightNode.setValue( value );
 					node.setRight( rightNode );
 
-				// STEP 2-2. 오른쪽 Node 가 Null이 아니면 하위 Node로 이동한다.	
+				// STEP 2-2. 오른쪽 Node 가 Null이 아니면 하위 Node 이동
 				} else {
 					addNode( value, node.getRight() );
 				}
