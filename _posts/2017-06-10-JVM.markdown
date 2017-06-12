@@ -20,12 +20,9 @@ JAVA Code는 C언어와 달리 기계어로 Compile 되지 않고, JVM이 이해
 - Compile 언어 : Coding - Compile - run  
 - Interpreter 언어 : Coding - run  
 - JAVA는 Byte Code로 **Complie**되고, 기동시에 한줄씩 **Interpret**하여 실행한다. 그렇다면 Java는 Complie 언어일까? Intepreter 언어일까?  
-- Complie 언어는 말그대로 작성한 코드가 실행되기 위해서는 Complie 과정을 거쳐서 실행하는 Machine이 이해할 수 있는 언어로 변경하는 것을 의미한다.  
-- Interpreter 언어는 별도의 Complie 과정없이 작성한 코드를 그대로 한줄씩 읽으면서 실행하게 된다.  
-- JAVA는 Complie 과정을 거치고, 실행시에는 Intepret하여 실행하기 때문에, 둘의 특성을 모두 가지고 있다고 할 수 있겠다.  
-- C는 Complie 언어, Javascript는 Interpreter 언어이다. Java도 Complie 과정이 있기 때문에 Complie 언어라고 해야되지 않을까.    
+- Complie 언어는 말그대로 작성한 코드가 실행되기 위해서는 Complie 과정을 거쳐서 실행하는 Machine이 이해할 수 있는 언어로 변경하는 것을 의미한다. Interpreter 언어는 별도의 Complie 과정없이 작성한 코드를 그대로 한줄씩 읽으면서 실행하게 된다. JAVA는 Complie 과정을 거치고, 실행시에는 Intepret하여 실행하기 때문에, 둘의 특성을 모두 가지고 있다고 할 수 있지만 엄연히 Compile 과정이 있기 때문에, Complie 언어에 속한다고 생각한다.  
 
-Byte Code로 Compile된 Code를 JVM은 어떻게 실행하게 되는 걸까.  
+Byte Code를 JVM은 어떻게 실행하게 되는 걸까.  
 JVM의 동작원리를 살펴보기 위해서는 JVM의 특성과 JVM의 구조를 알아야한다.    
 
 ---
@@ -99,9 +96,10 @@ public class Test {
 
 			/*
 			String이라는 Class 정보는 Method Area에 저장되어 있음.
-			str = "발아현미" 라고 선언, 초기화하는 순간, Heap에 String Class의 Instance가 메모리를 할당받으며,
-			"발아현미"라는 데이터가 Char[] 형태로 저장되게 됨. 해당 Instance에 접근하기 위한 주소값은
-			Stack Area str이라는 변수로 저장되게 되는 것임.
+			str = "발아현미" 라고 선언, 초기화하는 순간, Heap에 String Class의 
+			Instance가 메모리를 할당받으며, "발아현미"라는 데이터가 Char[] 형태로 
+			저장되게 됨. 해당 Instance에 접근하기 위한 주소값이 Stack Area에 
+			str이라는 변수로 저장되게 되는 것임.
 			*/  
 			String str = "발아현미";
 
