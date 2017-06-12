@@ -17,8 +17,8 @@ tags: [JAVA]
 JAVA Code는 C언어와 달리 기계어로 Compile 되지 않고, JVM이 이해할 수 있는 **Java Byte Code**(.class)로 Complie되며, JVM는 이러한 Byte Code를 한 줄 씩 읽어 번역한 뒤, 실행하게 된다.(Interpret)    
 
 > **Compile VS Interpreter**  
-- Compile 언어 : Coding - Compile - run  
-- Interpreter 언어 : Coding - run  
+- **Compile 언어** : Coding - Compile - run  
+- **Interpreter 언어** : Coding - run  
 - JAVA는 Byte Code로 **Complie**되고, 기동시에 한줄씩 **Interpret**하여 실행한다. 그렇다면 Java는 Complie 언어일까? Intepreter 언어일까?  
 - Complie 언어는 말그대로 작성한 코드가 실행되기 위해서는 Complie 과정을 거쳐서 실행하는 Machine이 이해할 수 있는 언어로 변경하는 것을 의미한다. Interpreter 언어는 별도의 Complie 과정없이 작성한 코드를 그대로 한줄씩 읽으면서 실행하게 된다. JAVA는 Complie 과정을 거치고, 실행시에는 Intepret하여 실행하기 때문에, 둘의 특성을 모두 가지고 있다고 할 수 있지만 엄연히 Compile 과정이 있기 때문에, Complie 언어에 속한다고 생각한다.  
 
