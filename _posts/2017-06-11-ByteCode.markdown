@@ -6,13 +6,13 @@ tags: [JAVA]
 
 ### 1. Byte Code    
 
-: JAVA에서는 Complie 과정을 거쳐 Sourece Code가 이해할 수 있는 **Java Byte Code**(.class)로 Complie되며, JVM는 이러한 Byte Code를 한 줄 씩 읽어 번역한 뒤, 실행하게 된다.(Interpreter)  
-Byte Code에 대해서 살펴보자.     
+: JAVA에서는 Complie 과정을 거쳐 Sourece Code가 이해할 수 있는 **Java Byte Code**(.class)로 Complie되며, JVM는 이러한 Byte Code를 한 줄 씩 읽어 번역한 뒤, 실행하게 된다.(Interpreter) Byte Code에 대해서 살펴보자.    
 
 ![JAVA 프로그램 실행 구조](https://parkmh04.github.io/images/JVM/JAVA_Excute_Structure.png)    
 
 > **Java Byte Code Viewer**  
 JAVA의 Byte Code 어떻게 생겼는지 궁금할 경우, Debugging 해보면 된다.  
+
 1) Eclipse Market Place에서 Bytecode Visualizer를 Plug-in으로 설치  
 2) ByteCode View라는 별도의 프로그램을 설치  
 
