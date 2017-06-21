@@ -25,8 +25,11 @@ tags: [Web/Was]
  [root@SERVER01] yum install gcc gc gcc-c++ make apr-util openssl openssl-devel zlib zlib-devel unzip perl
 ```
  - application 관리 계정 생성 확인  
- - 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인 및 netstat -an | grep 포트)    
-
+ - 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인)    
+ 
+```java
+ [root@SERVER01] netstat -an | grep 포트
+```
 ---
 
 ### 2. 설치 작업    
