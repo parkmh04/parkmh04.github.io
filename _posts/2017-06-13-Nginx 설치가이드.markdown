@@ -52,7 +52,7 @@ cd nginx-1.10.2
 
 ```java
 // 하위 인스턴스의 Conf 설정을 물고 Nginx 기동
-[nginxadm@SERVER01] /engn001/nginxadm/nginx/nginx-1.10.2/sbin/nginx -c -f /engn001/nginxadm/nginx/nginx-1.10.2/servers/test_01/conf/nginx.conf
+[nginxadm@SERVER01] /engn001/nginxadm/nginx/nginx-1.10.2/sbin/nginx -c /engn001/nginxadm/nginx/nginx-1.10.2/servers/test_01/conf/nginx.conf
 
 // 하위 인스턴스의 Conf 설정을 물고 Nginx 정지
 [nginxadm@SERVER01] /engn001/nginxadm/nginx/nginx-1.10.2/sbin/nginx -s stop
