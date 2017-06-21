@@ -12,7 +12,7 @@ tags: [Web/Was]
 - openssl과 openssl-devel (openssl lib로 openssl관련 헤더 파일정보가 있어 compile시 필요)  
 - GCC는 apache 바이너리 설치파일 compile시 필수적임  
 
-```java
+```linux
 [root@SERVER01 extra]# rpm -qa | grep openssl  
 openssl-0.9.8e-12.el5_4.1
 openssl-devel-0.9.8e-12.el5_4.1
