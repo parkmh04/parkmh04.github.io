@@ -7,23 +7,24 @@ tags: [Web/Was]
 ### 1. 설치 작업 전 확인사항    
 
 1. 시스템코드 확인 : 보통 5자리이하로 설정  
-2-1. 엔진 설치여부 및 엔진관리 계정(apaadm) 생성 확인  
-2-2. 엔진 미설치시 openssl / GCC compiler 설치여부 확인  
+2. 엔진 설치여부 및 엔진관리 계정(apaadm) 생성 확인  
+3. 엔진 미설치시 openssl / GCC compiler 설치여부 확인  
 - openssl과 openssl-devel (openssl lib로 openssl 관련 헤더 파일정보가 있어 compile시 필요)  
 - GCC는 apache 바이너리 설치파일 compile시 필요    
 
 ```java
 [root@SERVER01]# rpm -qa | grep openssl  
+
 // Bash 실행
 -bash-3.2$ rpm -qa | grep gcc
 ```    
 
-3. openssl, GCC Complier 없는 경우 설치  
+4. openssl, GCC Complier 없는 경우 설치  
 ```java
  [root@SERVER01] yum install gcc gc gcc-c++ make apr-util openssl openssl-devel zlib zlib-devel unzip perl
 ```
-4. application 관리 계정 생성 확인
-5. 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인 및 netstat -an | grep 포트)    
+5. application 관리 계정 생성 확인
+6. 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인 및 netstat -an | grep 포트)    
 
 ---
 
