@@ -12,13 +12,11 @@ tags: [Web/Was]
 - openssl과 openssl-devel (openssl lib로 openssl관련 헤더 파일정보가 있어 compile시 필요)  
 - GCC는 apache 바이너리 설치파일 compile시 필수적임  
 
-```linux
+```java
 [root@SERVER01 extra]# rpm -qa | grep openssl  
 openssl-0.9.8e-12.el5_4.1
 openssl-devel-0.9.8e-12.el5_4.1
-```
 
->예제
 -bash-3.2$ rpm -qa | grep gcc
 compat-gcc-34-3.4.6-4
 compat-libgcc-296-2.96-138
@@ -30,6 +28,7 @@ gcc-c++-4.1.2-48.el5
 gcc-objc-4.1.2-48.el5
 gcc-4.1.2-48.el5
 libgcc-4.1.2-48.el5
+```
 
 없으면 깔자: yum install gcc gc gcc-c++ make apr-util openssl openssl-devel zlib zlib-devel unzip perl
 
