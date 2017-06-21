@@ -6,11 +6,11 @@ tags: [Web/Was]
 
 ### 1. 설치 작업 전 확인사항    
 
- - 1. 시스템코드 확인 : 보통 5자리이하로 설정  
- - 2. 엔진 설치여부 및 엔진관리 계정(apaadm) 생성 확인  
- - 3. 엔진 미설치시 openssl / GCC compiler 설치여부 확인  
-- openssl과 openssl-devel (openssl lib로 openssl 관련 헤더 파일정보가 있어 compile시 필요)  
-- GCC는 apache 바이너리 설치파일 compile시 필요    
+ - 시스템코드 확인 : 보통 5자리이하로 설정  
+ - 엔진 설치여부 및 엔진관리 계정(apaadm) 생성 확인  
+ - 엔진 미설치시 openssl / GCC compiler 설치여부 확인    
+> openssl과 openssl-devel (openssl lib로 openssl 관련 헤더 파일정보가 있어 compile시 필요)  
+> GCC는 apache 바이너리 설치파일 compile시 필요    
 
 ```java
 [root@SERVER01]# rpm -qa | grep openssl  
@@ -19,18 +19,18 @@ tags: [Web/Was]
 -bash-3.2$ rpm -qa | grep gcc
 ```    
 
- - 4. openssl, GCC Complier 없는 경우 설치  
+ - openssl, GCC Complier 없는 경우 설치  
 ```java
  [root@SERVER01] yum install gcc gc gcc-c++ make apr-util openssl openssl-devel zlib zlib-devel unzip perl
 ```
- - 5. application 관리 계정 생성 확인
- - 6. 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인 및 netstat -an | grep 포트)    
+ - application 관리 계정 생성 확인
+ - 사용 포트 선정 (가장 최근 설치된 도메인의 Port Set 확인 및 netstat -an | grep 포트)    
 
 ---
 
 ### 2. 설치 작업    
- - 1. apr, apr-util, pcre 다운로드 후 압축 풀어서 apache 컴파일일 경로에 옮기고, make && make install로 설치  
- - 2. apache 컴파일 옵션 및 엔진 설치    
+ - apr, apr-util, pcre 다운로드 후 압축 풀어서 apache 컴파일일 경로에 옮기고, make && make install로 설치  
+ - apache 컴파일 옵션 및 엔진 설치    
 
 ```java
 // Apache 2.4 기준
@@ -39,8 +39,8 @@ tags: [Web/Was]
 [root@SERVER01] make && make install
 ```    
 
- - 3. AJP compile 및 설치    
- - 4. Apache 인스턴스 집합 디렉토리 생성    
+ - AJP compile 및 설치    
+ - Apache 인스턴스 집합 디렉토리 생성    
 
 > **Apache 홈 디렉토리 구조**  
 - servers/ : 웹서버 하위 인스턴스를 설치하기 위한 디렉토리  
@@ -49,10 +49,10 @@ tags: [Web/Was]
 - logs/ : apache에서 제공하는 기본 로그 디렉토리로 임의로 pid 등의 중요 로그를 위치시키는데 사용함  
 - conf/ : apache에서 기본적으로 제공되는 template conf 파일이 위치하며 인스턴스별로 해당 디렉토리를 복사해서 사용함    
 
- - 5. 인스턴스 생성    
- - 6. 인스턴스 conf 디렉토리 생성    
- - 7. 로그 디렉토리 생성    
- - 8. 기동/정지 스크립트 작성    
+ - 인스턴스 생성    
+ - 인스턴스 conf 디렉토리 생성    
+ - 로그 디렉토리 생성    
+ - 기동/정지 스크립트 작성    
 
 ```java
 // 하위 인스턴스의 Conf 설정을 물고 Apache 기동
@@ -62,7 +62,7 @@ tags: [Web/Was]
 [apaadm@SERVER01] /engn001/apaadm/apache22/bin/apachectl -f /engn001/apaadm/apache22/servers/test_01/conf/httpd.conf -k stop
 ```
 
- - 9. http.conf 수정 항목
+ - http.conf 수정 항목
 - Listen Port 수정
 - 유저/그룹 지정(User nobody, Group nobody)
 - 서버명 지정(localhost)
