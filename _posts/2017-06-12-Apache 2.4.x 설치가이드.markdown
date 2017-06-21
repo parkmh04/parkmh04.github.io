@@ -76,4 +76,4 @@ tags: [Web/Was]
 ---
 
 Ref :  
-[Apache 2.4 간단 구축 - 최고!](https://soonhyukyoon.github.io/2016/05/12/WebServer-Apache_HTTPD/){: target="_blank" }    
+[Apache 2.4 간단 구축 - 최고로 간단함!](https://soonhyukyoon.github.io/2016/05/12/WebServer-Apache_HTTPD/){: target="_blank" }    
