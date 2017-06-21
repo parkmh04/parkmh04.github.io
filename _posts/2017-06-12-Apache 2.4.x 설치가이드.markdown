@@ -75,5 +75,4 @@ tags: [Web/Was]
 ---
 
 Ref :  
-[Bytecode Visualizer](http://noentrypoint.blogspot.kr/2014/02/java-bytecode-debugging.html){: target="_blank" }    
-[ByteCode View를 활용한 APK 분석](https://brunch.co.kr/@c4u/23){: target="_blank" }    
+[Apache 2.4 간단 구축 - 최고!](https://soonhyukyoon.github.io/2016/05/12/WebServer-Apache_HTTPD/){: target="_blank" }    
