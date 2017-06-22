@@ -15,7 +15,7 @@ tags: [ETC]
 **라우터를 왜 쓰는가?**  
 > IP Layer에서 통신을 할 때는 IP주소(Lan 카드의 논리적 주소, IPv4, IPv6)를 이용하는데, 라우터가 이러한 IP주소를 이용하여 네트워크 통신이 가능하게 해준다.    
 
-**라우터 대신 L3 스위치를 쓴다는데? **  
+**라우터 대신 L3 스위치를 쓴다는데?**  
 > 스위치의 경우 MAC(Lan 카드의 물리적 주소)을 이용하여 네트워크 통신을 수행함. Layer 2로 IP Layer보다 하위이나, Router가 소프트웨어기반인 반면 Switch는 하드웨어 기반이기 때문에,
 성능상의 이유로 L3처리가 가능한 스위치를 사용한다고 한다. 그리고 라우터는 비싸다. 스위치는 싸다고도 한다. 그런데.. 찾아보니 과거에 라우터가 했던 기능(Dynymic Routing)을 이제는 L3 스위치도 거의 동일하게 사용할 수 있다고 한다.
 따라서 현재 라우터와 L3 스위치를 구분하는 것이 거의 무의미하다고 한다.   잘모르겠다.
@@ -25,10 +25,10 @@ tags: [ETC]
 L2 스위치는 Mac을 읽어서 해당 호스트에게 전달하는 역할을 수행하는 것이고, L3 스위치는 IP주소와 IP 데이터그램을 읽어서 경로를 설정하고, 패킷을 전송하는 역할을 한다. L4스위치는 TCP Segment를 읽어서 현재의 Traffic을 고려하여
 여러 서버들에 균등하게 할당할 수 있다.(로드 밸런싱), 또한 L4스위치는 이중화된 서버에서 한쪽 서버에 장애가 발생할 경우, 다른 서버로 스위칭하여 처리할 수 있도록 Fail-Over 기능을 지원한다. L7 스위치도 존재하는데, L4 스위치가 TCP Header를 읽고 Port를 식별하여, 로드밸런싱을 한다면, L7 스위치는 메시지를 읽고 메시지 패턴에 따라서 스위칭이 가능하게 한다고 한다. 메시지를 읽을 수 있기 떄문에, DOS 등의 공격에 방어가 가능하다.  
 
-**L4 스위치와 스티키 세션**(Sticky Session)
-Sticky Session은 처음에 접속했던 Server에 다음에 접속시에도 접속할 수 있도록 하는 방식이다. Session TimeOut 시간이 지나지 않은 동안, 동일한 사용자는 하나의 서버로 접속할 수 있게 한다. 스티키 세션을 쓰는 이유는
+**L4 스위치와 스티키 세션**(Sticky Session)  
+>Sticky Session은 처음에 접속했던 Server에 다음에 접속시에도 접속할 수 있도록 하는 방식이다. Session TimeOut 시간이 지나지 않은 동안, 동일한 사용자는 하나의 서버로 접속할 수 있게 한다. 스티키 세션을 쓰는 이유는
 매번 접속시마다 세션을 서버에서 만드는 데도 비용과 자원이 들기 때문에, 한번 만들어진 세션을 이용하여 통신을 수행할 수 있도록, 즉 오버헤드를 최소화하는데 있다. 문제는 스티키 세션방식은  L4의 로드밸런싱을
-방해할 수도 있다는 것이다. 다만 그 해결책에 대해서는 찾기가 어렵다. 그냥 사용하는 듯. 요즘에는 L4룰 중에 Least 어쩌
+방해할 수도 있다는 것이다. 다만 그 해결책에 대해서는 찾기가 어렵다. 그냥 사용하는 듯. 요즘에는 L4룰 중에 Least 방식을 쓴다는데.. 이건 뭘까나
 
 참고할 것.  
 http://enter.tistory.com/91  
@@ -65,7 +65,7 @@ DNS 란 무엇인가.
 이로써 세션은 CLOSED 되고 세션연결이 종료된다.
 
 **HTTPS와 SSL, TLS**  
-SSL은 Secure Socket Layer의 약자이며, TLS는 Transport Layer Security이다. SSL 3.1을 발표하면서 공식적으로 표준화한 이름이 TLS이며, TLS 1.0이 SSL 3.1, TLS 1.1이 SSL 3.2 TLS 1.2가 SSL 3.3이다. 확인해보니 현재 TLS .1.3(Draft)까지 나와있다.
+> SSL은 Secure Socket Layer의 약자이며, TLS는 Transport Layer Security이다. SSL 3.1을 발표하면서 공식적으로 표준화한 이름이 TLS이며, TLS 1.0이 SSL 3.1, TLS 1.1이 SSL 3.2 TLS 1.2가 SSL 3.3이다. 확인해보니 현재 TLS .1.3(Draft)까지 나와있다.
 암튼 HTTPS는 SSL/TLS 위에서 데이터를 전송하는데, 비대칭키와 대칭키 알고리즘을 모두 사용하여 세션을 연결하고 데이터를 전송한다. 기본적으로 비대칭키는 공개키와 개인키 모두 암복호화를 수행하고, 대칭키는 하나의 키로 암복호화를 수행한다.
 대칭키는 속도면에서 비대칭키에 비해 우수하나, 배포의 문제점이 있다.(손으로 쓰고 007 가방으로 옮기지 않는한), 따라서 대칭키를 안전하게 교환할 수단이 필요했고, 비대칭키 알고리즘은 대칭키를 교환하는데 사용된다. Handshake 과정에서
 Client는 Server에게 SYN을 보내면서 Client의 Client Nonce를 Server에 함께 전달한다.  Server는 ACK를 전달하면서 Server Nonce, Server 인증서를 Client에 반환한다. Client는 전달된 인증서가 CA(Certificate authority)가 발급한 것이 맞는지, 미리 저장하고
@@ -78,11 +78,20 @@ http://mohwaproject.tistory.com/entry/HTTPS%EB%9E%80
 http://sostarzia.tistory.com/184  
 http://mindnet.tistory.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-22%ED%8E%B8-TCP-3-WayHandshake-4-WayHandshake  
 https://opentutorials.org/course/228/4894  
-https://blog.cloudflare.com/introducing-tls-1-3/  
+https://blog.cloudflare.com/introducing-tls-1-3/    
+
+**세션과 쿠키의 정의 및 차이점**  
+> 쿠키는 과자입니다. HTTP 통신에서 사용자가 WebServer에 접속한 이력, 계정정보 등을 담고있는 텍스트파일이다. 쿠키가 필요한 이유는 HTTP 통신이 Steadless 특성을 갖고 있기 때문이다.(모든 연결은 독립적이고, 연결이 종료되면 세션이 종료됨, 따라서 동일한 사용자의 연속적인
+동작을 확인하기 위해서는 별도의 방법이 필요함.) 쿠키는 사용자가 Server에 세션 연결시에 함께 전송되며, Server는 쿠키를 읽어 해당 사용자의 이전동작 등을 확인할 수 있다. 1개의 쿠키의 길이는 보통 4096 바이트의 길이제한이 있다. 과거에는 로그인 ID, 비밀번호를 쿠키에 저장했었고,
+(사용자 편의성을 위해) 이를 악용하는 경우가 있었다. 따라서 쿠키 대신에 Session을 사용하기 시작하였다. Session의 경우 민감한 사용자 정보는 Server에 저장하고, 해당 Session에 접근가능한 메타정보만을 Client에 넘겨주는 방식이다. 쿠키에 민감한 사용자정보가 아닌, Session의 접근자
+정보만 전달하므로 악용될 소지가 줄어들게 된다. Session 전달시에는 Server에서 생성한 Session임을 의미하는 식별 키 값, Session간 식별이 가능하도록 Session ID 값, 도메인 주소 등이 함께 전달된다.
+
+참고할 것.  
+https://www.microsoft.com/Korea/MSDN/columns/Contents/ASPdotNET/vbtchASPNETCookies101/  
+http://luna79.tistory.com/39  
+http://m.blog.naver.com/franken82/130142391126  
 
 
-
-세션과 쿠키의 정의 및 차이점  
 클러스터링 (ex.세션클러스터링)  
 HTTP Version 별 차이점  
 크로스사이트인젝션  
