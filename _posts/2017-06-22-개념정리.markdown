@@ -4,108 +4,111 @@ categories: -[ETC]
 tags: [ETC]
 ---
 
-### 1. Network
-라우터란 무엇인가
-Gateway
-SSO(Single Sign Object)란 무엇인가.
-DNS 란 무엇인가.
-서브넷마스크란 무엇인가
-방화벽이란 무엇인가
+### 1. Network    
+라우터란 무엇인가  
+Gateway  
+SSO(Single Sign Object)란 무엇인가.  
+DNS 란 무엇인가.  
+서브넷마스크란 무엇인가  
+방화벽이란 무엇인가    
  
----
+---    
  
-### 2. HTTP
-HTTP와 HTTPS의 정의 및 차이점
-세션과 쿠키의 정의 및 차이점
-클러스터링 (ex.세션클러스터링)
-HTTP Version 별 차이점
-크로스사이트인젝션
-TLS는 무엇인가, TLS의 버전별 차이(SSL과 TLS의 차이)
-TLS 맺는 과정
-Ajax란 무엇인가.
-부트스트랩이란 무엇인가
-Active X란 무엇인가
+### 2. HTTP    
+HTTP와 HTTPS의 정의 및 차이점  
+세션과 쿠키의 정의 및 차이점  
+클러스터링 (ex.세션클러스터링)  
+HTTP Version 별 차이점  
+크로스사이트인젝션  
+TLS는 무엇인가, TLS의 버전별 차이(SSL과 TLS의 차이)  
+TLS 맺는 과정  
+Ajax란 무엇인가.  
+부트스트랩이란 무엇인가  
+Active X란 무엇인가    
  
----
+---    
 
-### 3. Socket 통신
-Socket 통신이란 무엇인가
-Socket Connecion이 맺어지는 과정
-LITTELE ENDIAN과 BIG ENDIAN
-타임아웃의 종류와 차이
-올바른 타임아웃 설정법
-메시지 큐(MQ?)란 무엇인가
-싱크/어싱크 차이점
-NIO란?
----
+### 3. Socket 통신    
+Socket 통신이란 무엇인가  
+Socket Connecion이 맺어지는 과정  
+LITTELE ENDIAN과 BIG ENDIAN  
+타임아웃의 종류와 차이  
+올바른 타임아웃 설정법  
+메시지 큐(MQ?)란 무엇인가  
+싱크/어싱크 차이점  
+NIO란?    
+
+---    
  
-### 4. JAVA
-JVM 메모리 구조 및 각 영역의 역할(STACK과 HEAP, STATIC)
-POJO란 무엇인가 Bean과는 무슨 차이가 있는가
-J유닛,로드러너, 레드마인은 무엇이며, 각각 어떻게 동작하는가
-디자인패턴의 종류와 활용법
-싱글톤이란 무엇인가, Singleton의 사례
-오버라이드 와 오버로딩의 차이
-추상클래스와 인터페이스의 차이
-fork와 join
-에러와 익셉션의 차이 및 Check Exception과 Unchecked Exception의 차이
-OOM 발생원인 및 대처
-StackOverFlow 발생원인 및 대처
-Call by Value Call by Reference란 무엇인가
-Java7 변경점
-Java8 변경점
-시리얼라이즈블 인터페이스란 무엇이며, 어떻게 쓰는 것인가
-암호화 종류별 원리
+### 4. JAVA    
+JVM 메모리 구조 및 각 영역의 역할(STACK과 HEAP, STATIC)  
+POJO란 무엇인가 Bean과는 무슨 차이가 있는가  
+J유닛,로드러너, 레드마인은 무엇이며, 각각 어떻게 동작하는가  
+디자인패턴의 종류와 활용법  
+싱글톤이란 무엇인가, Singleton의 사례  
+오버라이드 와 오버로딩의 차이  
+추상클래스와 인터페이스의 차이  
+fork와 join  
+에러와 익셉션의 차이 및 Check Exception과 Unchecked Exception의 차이  
+OOM 발생원인 및 대처  
+StackOverFlow 발생원인 및 대처  
+Call by Value Call by Reference란 무엇인가  
+Java7 변경점  
+Java8 변경점  
+시리얼라이즈블 인터페이스란 무엇이며, 어떻게 쓰는 것인가    
 
----
+---  
 
-### 5.Spring Framework
-Spring IOC란 무엇인가
-SPring DI란 무엇인가
-Spring AOP란 무엇인가
-Spring Bean이란 무엇인가
-Spring 제어역전이란 무엇인가
-Spring Annotaion의 의미 및 활용법
-<암복호화>
-주요 암/복호화 알고리즘의 종류 및 분류(대칭/비대칭/해쉬 등)
-단방향암호화 장단점 밎 극복방안
-인코딩과 디코딩(+Encryption과의 차이)
-PKCS  알고리즘의 의미
-Padding의 의미
-aes128에서 128의 의미
+### 5.Spring Framework    
+Spring IOC란 무엇인가  
+SPring DI란 무엇인가  
+Spring AOP란 무엇인가  
+Spring Bean이란 무엇인가  
+Spring 제어역전이란 무엇인가  
+Spring Annotaion의 의미 및 활용법    
+
+---    
+
+### 6.암복호화    
+주요 암/복호화 알고리즘의 종류 및 분류(대칭/비대칭/해쉬 등)  
+단방향암호화 장단점 밎 극복방안  
+인코딩과 디코딩(+Encryption과의 차이)  
+PKCS  알고리즘의 의미  
+Padding의 의미  
+aes128에서 128의 의미    
  
----
+---    
 
-### 6.Web/WAS
-Proxy, Reverse Proxy
-웹서버와 WAS서버
-Connection Pool이란 무엇인가, 사용하는 이유
-IIS란 무엇인가
-내부망/외부망/DMZ에 대한 정의 및 특징
-NAS란 무엇인가  (파일 업다운용으로 쓰는 서버인건 알겠는데… )
-NAT IP란 무엇인가 Ellastic IP는 또 무엇인가, 일반 IP와의 차이점.
-SSL/SSH 방식에 대한 정의
-in-bound, out-bound란 무엇인가 
-로드 밸런싱, Round-Robin, Hash
-이더넷, LAN, WLAN
-PORT (포트의 개념. 왜 나누는 것이며, 무한정한 것이며, 흔히 쓰는 443, 8080, 8800 등.. 무슨 의미인지.. )
-이중화(server) Active-Standby
-Hang이 걸리다의 의미 및 사례 / 대처방안
-캐시란 무엇인가
-서블릿이란 무엇인가
-Fail over와 Fail back
+### 7.Web/WAS    
+Proxy, Reverse Proxy  
+웹서버와 WAS서버  
+Connection Pool이란 무엇인가, 사용하는 이유  
+IIS란 무엇인가  
+내부망/외부망/DMZ에 대한 정의 및 특징  
+NAS란 무엇인가  (파일 업다운용으로 쓰는 서버인건 알겠는데… )  
+NAT IP란 무엇인가 Ellastic IP는 또 무엇인가, 일반 IP와의 차이점.  
+SSL/SSH 방식에 대한 정의  
+in-bound, out-bound란 무엇인가  
+로드 밸런싱, Round-Robin, Hash  
+이더넷, LAN, WLAN  
+PORT (포트의 개념. 왜 나누는 것이며, 무한정한 것이며, 흔히 쓰는 443, 8080, 8800 등.. 무슨 의미인지.. )  
+이중화(server) Active-Standby  
+Hang이 걸리다의 의미 및 사례 / 대처방안  
+캐시란 무엇인가  
+서블릿이란 무엇인가  
+Fail over와 Fail back    
  
  ---
 
-### 7.DB
-이중화(DB,Session), Master, Slave
-DB인덱싱
-UNION 과 UNION ALL
-스키마
-데이터 마이닝
-트리거란 무엇인가
+### 8.DB    
+이중화(DB,Session), Master, Slave  
+DB인덱싱  
+UNION 과 UNION ALL  
+스키마  
+데이터 마이닝  
+트리거란 무엇인가  
 
----
-공부하자
+---    
+공부하자    
 
 Ref :  
