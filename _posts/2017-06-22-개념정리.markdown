@@ -133,7 +133,7 @@ CG방식은 여러가지가 있으나, Java 7 이상에서는 ParallOld / G1 GC�
 **POJO란 무엇인가 Spring Bean과는 무슨 차이가 있는가**  
 > POJO는 Plain Java Old Object의 준말이며, 말 그대로 특정 도메인이나, 서비스에 종속되지 않은 느슨한 결합도를 가진 자바 객체이다. EJB(Enterprise Java Bean)와 대비되는 개념이다. POJO는 Overhead가 많은 EJB의 문제의 해결책으로 제시되었으며, 특정 기술이나 규약에
 종속도지 않기 때문에 객체지향 원리에 충실하다고 할 수 있겠다. POJO를 이용하면 코드가 간결해진다. 환경 종속적이지 않기 때문에, 테스트도 어렵지 않고, POJO에 어떤 설정을 주입하는가에 따라 다양한 형태로 구현이 가능하기 때문에, 재사용성과 확장성이 뛰어나다고
-할 수 있겠다. Spring Bean은 POJO 기반 Framework인 Spring의 Component를 의미하며, Spring의 Bean은 XML을 통해 의존성을 주입받게 된다.(일종의 환경설정, 혹은 특정 클래스에 대한 참조설정 등으로 이해하고 있다). 의존성을 주입받은 POJO를 개발자는 호출하기만 해도,
+할 수 있겠다. Spring Bean은 POJO 기반 Framework인 Spring의 Contailner에 의해서 제어되는 Component를 의미하며, Spring의 Bean은 XML을 통해 의존성을 주입받게 된다.(일종의 환경설정, 혹은 특정 클래스에 대한 참조설정 등으로 이해하고 있다). 의존성을 주입받은 POJO를 개발자는 호출하기만 해도,
 XML에 설정해둔 대로 동작하게 된다. 따라서 모든 Bean등을 의존성 주입이 가능한 POJO 형태로 되어 있다.    
 
 참고할 것.  
@@ -160,7 +160,9 @@ Java8 변경점
 ---  
 
 ### 5.Spring Framework    
-Spring IOC란 무엇인가  
+**Spring IOC란 무엇인가**  
+
+
 SPring DI란 무엇인가  
 Spring AOP란 무엇인가  
 Spring Bean이란 무엇인가  
