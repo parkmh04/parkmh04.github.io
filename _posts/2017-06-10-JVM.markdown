@@ -84,6 +84,9 @@ Thread 별로 하나씩 생성하여 사용한다.
 - Primitive Type 변수들이 저장된다.(Reference Type은 Heap)    
 
 **Sample Code**
+
+![JVM_SampleCode](https://parkmh04.github.io/images/JVM/JVM_SampleCode.png)
+
 ``` java
 // Mehtod Area 저장
 public class Test {
@@ -119,7 +122,7 @@ public class Test {
 			System.out.println();
 	}
 }
-```    
+```
 
 > **PC**(Program Counter) **Register**  
 - Thread가 시작될 때, 생성되며, JVM 내부에서 처리한다.    
