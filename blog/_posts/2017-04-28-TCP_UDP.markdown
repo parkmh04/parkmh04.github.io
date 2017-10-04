@@ -1,0 +1,63 @@
+---
+title:  "TCP VS UDP"
+categories: [Network]
+tags: [Network]
+---
+
+### 1. TCP(Transmission Control Protocol)    
+
+: 서로 연결된 망 내에서 실행되는 Application간의 **신뢰성 있는** 데이터의 전달을 보장하는 전송계층의 프로토콜이다.    
+- TCP는 **흐름제어**, **혼잡제어**, **연결지향형**의 특징을 가지고 있다.  
+> **흐름제어** : 데이터 송수신 양측의 데이터 처리 속도의 차이를 조절해준다.    
+**혼잡제어** : 네트워크 내 패킷(TCP Segment)수가 넘치지 않도록 방지해 준다.    
+**연결 지향형** : 데이터의 송수신을 하기전에 데이터 전송이 가능한 상태인지를 확인하여 Connection을 맺어두고 데이터를 전송한다.(Handshaking)
+
+![TCP 3-way Handshaking](https://parkmh04.github.io/images/TCP_Connection_process.png)    
+
+TCP를 이용할 경우, 데이터의 송수신의 신뢰성이 보장되므로, UDP에 비해 속도가 느리지만, 전송하는 데이터의 정합성이 필수인 대부분의 L7 프로토콜에서 사용한다.(HTTP, FTP, SMTP, Telnet)
+
+---
+### 2. UDP(User Datagram Protocol)    
+
+: 서로 연결된 망 내에서 실행되는 Applicatioon간의 데이터 전달을 담당하는 전송계층의 프로토콜이다.  
+- UDP는 TCP에서 제공하는 **흐름제어**, **혼잡제어**를 제공하지 않는다.  
+- Cheksum 필드를 통해 최소한의 오류만 검출한다.  
+
+![UDP Protocol](https://parkmh04.github.io/images/UDP_Connection_process.png)    
+
+UDP를 이용할 경우, 데이터의 송수신의 신뢰성이 보장되지 않지만, 속도가 빠르므로, 속도가 중요시되는 프로토콜에서 사용한다.(DNS, NFS, SNMP, RIP)    
+
+- UDP 자체에서는 데이터의 신뢰성을 보장하지 않지만, 전송하는 데이터 내에 별도의 Header를 만들어서 전송하는 데이터의 일련번호를 추가하고 수신하는 측에서 일련번호를 확인하여 데이터의 신뢰성을 확보하려한다.    
+
+- 이러한 특성으로 멀티미디어, 게임 등과 같이 전송하는 데이터의 양이 많으면서 속도가 중시되는 경우나, IOT 영역의 Senser 모듈 등과 같이 데이터 전송에 사용하는 자원을 최소화해야하는 경우 UDP를 쓰는 것이 적절할 수 있다.    
+
+---
+### 3. TCP VS UDP    
+
+- TCP/UDP 모두 IP Datagram을 이용하여, 데이터를 전송한다.(Host : Port)    
+- 각 프로토콜의 특성으로 인해  Header구조의 차이가 있다.(TCP는 전송 제어를 위한 Header정보가 존재, UDP는  존재하지 않음)    
+
+**TCP-UDP Header 비교**    
+
+![TCP-UDP Header 비교](https://parkmh04.github.io/images/TCP-UDP-Header.jpg)    
+
+**TCP-UDP 비교**    
+
+|특성/설명|TCP|UDP|
+|:---|:---|:---|
+|프로토콜 연결 수립|연결형. 전송 전에 연결을 먼저 맺어야 한다.|비연결형. 연결 수립이 없이 데이터를 송신함|
+|데이터 입력 인터페이스|ByteStream 기반, 데이터전송|Datagram 기반 데이터 전송|
+|신뢰성과 승인|메시지 전송을 신뢰할 수 있음. 모든 데이터에 대한 승인이 있음|신뢰성이 없음. 승인이 없음|
+|재전송|모든 데이터 전송을 관리하며, 손실된 데이터는 자동으로 재전송함|수행하지 않음. 애플리케이션은 손실 데이터를 탐지하고 필요할 경우 재전송해야 함|
+|데이터 흐름 관리|윈도우 크기를 적절히 조정하고, 혼잡 회피 알고리즘을 사용함|없음. 슬라이딩 윈도우를 이용한 흐름 제어를 함|
+|부하|낮지만 UDP 보다는 높음|매우 낮음|
+|전송 속도|빠르지만 UDP 만큼은 아님|매우 빠름|
+|적합한 데이터 양|	소형에서 초대형 데이터까지(최대 수 기가 바이트)|소형에서 중형 데이터(최대 수백 바이트)|
+|프로토콜을 사용하는 애플리케이션의 유형|신뢰할 수 있는 방법으로 데이터를 송신해야 하는 대부분의 프로토콜과 애플리케이션. 대부분의 파일/메시지 전송 프로토콜을 포함함|데이터의 완전성보다 전달 속도가 중요하고, 소량의 데이터를 송신하고, 멀티캐스트/브로트캐스트를 사용하는 애플리케이션|
+|유명 애플리케이션과 프로토콜|FTP, Telnet, SMTP, DNS, HTTP, POP, NNTP, IMAP, BGP, IRC, NFS(나중버전)|멀티미디어 애플리케이션, DNS, BOOTP, DHCP, TFTP, SNMP, RIP, NFS(초기버전)|
+
+---
+Ref :  
+[TCP Handshaking 과정](http://www.ktword.co.kr/abbr_view.php?m_temp1=1901){: target="_blank" }    
+[OSI Tranport Layer](http://www.highteck.net/EN/Transport/OSI_Transport_Layer.html){: target="_blank" }    
+[TCP-UDP 비교](http://wooguy-tcpip.blogspot.kr/2014/04/tcp-udp.html){: target="_blank" }    

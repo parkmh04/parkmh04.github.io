@@ -1,0 +1,88 @@
+---
+title:  "[소인수분해 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+ -  개요  
+ 소인수 분해(prime factorization)는 합성수를 소수의 곱으로 나타내는 방법을 말한다.
+ 입력 받은 숫자를 소인수 분해하여 아래와 같은 형식으로 출력하여라.(15분)
+  
+ 아래는 20 이하 합성수의 소인수분해이다. 1은 소수가 아니다.  
+ 4=2×2  
+ 6=2×3  
+ 8=2×2×2  
+ 9=3×3  
+ 10=2×5  
+ 12=2×2×3  
+ 14=2×7  
+ 15=3×5  
+ 16=2×2×2×2  
+ 18=2×3×3  
+ 20=2×2×5  
+ 
+ - 예상 결과
+ 
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ 
+ ``` java
+ 결과 : '86420'의 소인수 분해 결과 : 2*2*5*29*149
+ ``` 
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class test04 {
+
+	private static final String result = "결과 : '%d'의 소인수 분해 결과 : %s";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+
+		// STEP 1. TEST 데이터 준비
+		int num = 86420;
+
+		String primeFact = null;
+		long startTime = System.currentTimeMillis();
+		// STEP 2. 소인수 분해
+		primeFact = getPrimeFactorization( num );
+
+		System.out.println( String.format( result, num, primeFact ) );
+
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+
+	}
+
+	/**
+	 * <PRE>
+	 * 소인수 분해를 진행한다.
+	 * </PRE>
+	 * 
+	 * @param num : 숫자
+	 */
+	public static String getPrimeFactorization( int num ) {
+		StringBuffer sb = new StringBuffer();
+
+		int inx = 2;
+
+		/*
+		 * 소인수 분해를 진행한다. 제일 작은 소수는 2이다.
+		 */
+		while ( num > 0 ) {
+			if ( num > inx && num % inx == 0 ) {
+				sb.append( inx ).append( "*" );
+				num = num / inx;
+				inx = 2;
+			} else if ( num == inx ) {
+				sb.append( inx );
+				break;
+			} else {
+				inx++;
+			}
+		}
+		return sb.toString();
+	}
+}
+```

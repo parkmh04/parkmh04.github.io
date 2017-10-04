@@ -1,0 +1,39 @@
+# Site settings
+title: 창고04
+description: '박명하의 창고입니다.'
+url: 'https://parkmh04.github.io'
+baseurl: /blog/
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
+
+author:
+  name: 'Myungha, Park'
+  email: parkmh04@gmail.com
+  #twitter_username: parkmh04
+  facebook_username: myungha.park.501
+  github_username:  parkmh04
+  linkedin_username: myung-ha-park-923173111
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: :year/:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']

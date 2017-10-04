@@ -1,0 +1,87 @@
+---
+title:  "[삼각형 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+
+ - 개요
+ 숫자 삼각형 나열하기
+ N은 사용자로 부터 입력 받는다. 
+ 숫자는 차례로 1씩 증가하며, N번째 줄에 N개 만큼의 숫자가 놓여진다.
+ 숫자를 아래의 예시와 같이 나열되게 해주는 함수를 구현하라.(5분)
+ 
+ - 예상 결과
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ 
+ ``` java
+ 1) 5 입력시 
+ 
+ 1 
+ 2 3
+ 4 5 6
+ 7 8 9 10
+ 11 12 13 14 15
+  
+ 2) 10 입력시
+ 
+ 1 
+ 2 3 
+ 4 5 6 
+ 7 8 9 10 
+ 11 12 13 14 15 
+ 16 17 18 19 20 21 
+ 22 23 24 25 26 27 28 
+ 29 30 31 32 33 34 35 36 
+ 37 38 39 40 41 42 43 44 45 
+ 46 47 48 49 50 51 52 53 54 55 
+ ```
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test09 {
+
+	@SuppressWarnings( "resource" )
+	public static void main( String[] args ) {
+		Scanner scan = new Scanner( System.in );
+		System.out.println( "[숫자삼각형만들기]" );
+		System.out.println( "원하는 수 를 입력하세요 >> " );
+		int userInput = scan.nextInt();
+
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+		System.out.println( "\n[결과]" );
+
+		arryTriangle( userInput );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * <PRE>
+	 * 사용자가 입력한 줄까지 숫자 삼각형을 만들어 출력한다.
+	 * </PRE>
+	 * 
+	 * @param userInput : 사용자 입력값(출력을 원하는 라인수)
+	 */
+	public static void arryTriangle( int userInput ) {
+		int num = 1; // 출력할 숫자
+
+		// 세로열
+		for ( int inx = 1 ; inx <= userInput ; inx++ ) {
+
+			// 가로열
+			for ( int jnx = 1 ; jnx <= inx ; jnx++ ) {
+				// 숫자 출력
+				System.out.print( num++ + " " );
+			}
+			// 모든 숫자를 출력하면 다음 행으로 이동.
+			System.out.println();
+		}
+	}
+}
+```

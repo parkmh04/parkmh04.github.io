@@ -1,0 +1,136 @@
+---
+title:  "[최소공배수 - Medium]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+
+- 개요  
+ 두 수의 최소공배수(Least Common Multiple)란 입력된 두 수의 배수 중 공통이 되는 가장 작은 숫자를 의미합니다.
+ 예를 들어 2와 7의 최소공배수는 14가 됩니다. 정의를 확장해서, n개의 수의 최소공배수는 n 개의 수들의 배수 중
+ 공통이 되는 가장 작은 숫자가 됩니다. nlcm 함수를 통해 n개의 숫자가 입력되었을 때, 최소공배수를 반환해 주세요.  
+ 예를들어 [2,6,8,14] 가 입력된다면 168을 반환해 주면 됩니다.
+ 
+  
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test03 {
+
+	private static final String result = "결과 : %s의 최소공배수 >> %d";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP 1. TEST 데이터 준비
+		int[] ex = { 2, 6, 8, 14 };
+
+		// STEP 2. 최소공배수 구하기
+		long nlcmStr = getNlcm( ex );
+		System.out.println( String.format( result, Arrays.toString( ex ), nlcmStr ) );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * n개의 수의 최소공배수는 2개씩 순차적으로 최소공배수를 구한 것과 같다.
+	 * </PRE>
+	 * 
+	 * @param arr (최소공배수를 구할 수의 배열)
+	 * @return answer (n개의 수의 최소공배수(lcm) : nlcm)
+	 */
+	public static long getNlcm( int[] arr ) {
+		long answer = 0;
+
+		// 첫번째 수와 두번째 수의 최소공배수를 구한다.
+		answer = getLcm( (long)arr[0], (long)arr[1] ); 
+
+		// 주어진 수가 2개 이상인 경우
+		if ( arr != null && arr.length >= 2 ) { 
+			for ( int i = 2 ; i < arr.length ; i++ ) {
+				// 차례로 직전까지 수의 최소공배수와 이번 수의 최소공배수를 구한다.
+				answer = getLcm( answer, (long)arr[i] ); 
+			}
+		}
+		return answer;
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * 두수의 최대공약수를 구한다.
+	 * </PRE>
+	 * 
+	 * @param a : 첫번째 수
+	 * @param b : 두번째 수
+	 * @return 최대공약수(gcd)
+	 */
+	public static long getGcd( long a, long b ) {
+		long temp = 0;
+		if ( a < b ) {
+			temp = a;
+			a = b;
+			b = temp;
+		}
+		if ( a % b == 0 ) {
+			return b;
+		} else {
+			return getGcd( b, a % b );
+		}
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * 두수의 최소공배수를 구한다.
+	 * 최소공배수는 두수의 곱을 최대공약수로 나눈 값과 같다. (lcm = a * b / gcd)
+	 * </PRE>
+	 * 
+	 * @param a : 첫번째 수
+	 * @param b : 두번째 수
+	 * @return 최소공배수(lcm)
+	 */
+	public static long getLcm( long a, long b ) {
+		long gcd = getGcd( a, b );
+		if ( gcd == 0 ) {
+			return 0;
+		} else {
+			return (a * b / gcd);
+		}
+	}
+	
+	/**
+	 * 
+	 * <PRE>
+	 * 참고. JAVA API - BigInteger를 활용한 풀이
+	 * </PRE>
+	 * 
+	 * @param arr (최소공배수를 구할 수의 배열)
+	 * @return answer (n개의 수의 최소공배수(lcm) : nlcm)
+	 */
+	public static long getNlcm2( int[] arr ) {
+		BigInteger first = BigInteger.valueOf( 1 );  // 초기 값은 1이다.
+		BigInteger second = null;
+		BigInteger lcm = null;
+
+		// 순차적으로 최소공배수를 구한다.
+		for ( int num : arr ) {
+			// STEP 1. 최소공배수를 구할 대상 숫자를 배열에서 꺼낸다.  
+			second = BigInteger.valueOf( num ); 
+			
+			// STEP 2. 최소공배수는 두수의 곱을 최대공약수로 나눈 값과 같다. (lcm = a * b / gcd)
+			lcm = second.multiply( first ).divide( second.gcd( first ) );
+			
+			// STEP 3. 구해진 최소공배수는 첫번째 대상 숫자가 된다.(다음 최소공배수 계산을 위해)
+			first = lcm;
+		}
+		return lcm.longValue();
+	}
+}
+```

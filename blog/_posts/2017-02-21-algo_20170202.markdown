@@ -1,0 +1,83 @@
+---
+title:  "[문자열 압축 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+- 개요
+
+ 문자열을 입력받아서, 같은 문자가 연속적으로 반복되는 경우에 그 반복 횟수를 표시하여 문자열을 압축하여라. (10분)
+ 
+- 예상 결과
+ 
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ 
+ ``` java
+ 결과 : 'aaabbcccccca'의 문자 압축 결과 : a3b2c6a1
+ ```
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class test02 {
+
+	private static final String result = "결과 : '%s'의 문자 압축 결과 : %s";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP 1. TEST 데이터 준비
+		String str = "aaabbcccccca";
+
+		String compressedStr = null;
+		// STEP 2. 소인수 분해
+		compressedStr = stringCompressor( str );
+		System.out.println( String.format( result, str, compressedStr ) );
+
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+
+	}
+
+	/**
+	 * <PRE>
+	 * 문자열을 압축한다.
+	 * </PRE>
+	 * 
+	 * @param str : 문자
+	 * @retrun compressedStr : 압축된 문자
+	 */
+	public static String stringCompressor( String str ) {
+		StringBuffer sb = new StringBuffer(); // 결과 값 저장을 위한 변수
+		char[] charArr = str.toCharArray();   // 문자열을 Char[] 변환
+		Character lastChar = null;                 // 마지막 문자를 저장하기 위한 변수
+		int cnt = 1;                                      // 문자 카운팅을 위한 변수
+
+		/*
+		 * 입력받은 문자열을 Char로 분리하여 숫자를 카운팅한다. 
+		 */
+		for ( char charOne : charArr ) {
+			
+			// 마지막 문자가 없는 경우 = 시작
+			if ( lastChar == null ) {
+				sb.append( charOne );
+				lastChar = charOne;
+
+			// 마지막 문자가 현재 문자와 다른 경우 = 문자 카운팅 종료 	
+			} else if ( !lastChar.equals( charOne ) ) {
+				sb.append( cnt ).append( charOne );
+				lastChar = charOne;
+				cnt = 1;
+
+			// 마지막 문자가 현재 문자와 같은 경우 = 문자 카운팅	
+			} else {
+				cnt++;
+			}
+		}
+		// 반환전에 마지막으로 카운팅한 숫자를 붙여준다.
+		return sb.append( cnt ).toString();
+	}
+}
+```

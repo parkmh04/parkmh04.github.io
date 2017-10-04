@@ -1,0 +1,76 @@
+---
+title:  "[피보나치 수열 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+ - 개요
+  
+ 피보나치 수열의 각 항은 바로 앞의 항 두개를 더한 것이 됩니다.
+ 1과 2로 시작하는 경우 이 수열은 다음과 같습니다.
+ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ...
+ 짝수이면서 4백만 이하인 모든 항을 더하면 얼마가 될까요? (15분)
+ 
+ - 예상 결과
+ 
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ 
+ ``` java
+ 결과 : 조건을 만족하는 피보나치 수열의 각 항의 합 = 4613732
+ ```
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class test05 {
+
+	private static final String result = "결과 : 조건을 만족하는 피보나치 수열의 각 항의 합 = %d ";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP.1 조건을 만족하는 각 항의 합을 구한다.
+		int sum = pibosum();
+		System.out.println( String.format( result, sum ) );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * <PRE>
+	 * 조건을 만족하는 피보나치 수열의 각 항의 합을 구한다.
+	 * </PRE>
+	 * 
+	 * @return 피보나치 수열 각항의 합
+	 */
+	public static int pibosum() {
+		int firstNum = 1;  // 피보나치 수열의 앞항을 저장하기 위한 변수
+		int secondNum = 2; // 피보나치 수열의 뒷항을 저장하기 위한 변수
+		int stack = 0;     // 연산값 저장을 위한 임시 변수 
+		int sum = 2;       // 결과값 저장을 위한 변수 
+
+		while ( stack > -1 ) {
+
+			// 피보나치 수열 이동
+			stack = firstNum + secondNum;
+			firstNum = secondNum;
+			secondNum = stack;
+
+			// 항의 값이 400000 이하
+			if ( secondNum <= 4000000 ) {
+
+				// 짝수인 경우 합에 포함시킨다.
+				sum += (secondNum % 2 == 0 ? secondNum : 0); 
+			} else {
+				// 조건을 벗어나면 반복문을 종료한다.
+				stack = -1; // 
+			}
+		}
+		return sum;
+	}
+}
+```

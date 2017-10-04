@@ -1,0 +1,67 @@
+---
+title:  "[숫자카운팅 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+
+- 개요    
+ 1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가?8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라 8이라는 숫자를 모두 카운팅 해야 한다.  
+ (※ 예를들어 8808은 3, 8888은 4로 카운팅 해야 함) (10분)
+ 
+ - 예상 결과  
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.  
+ 예 1: '8808'에서 8의 갯수 : 3  
+ 예 2: '89'에서 8의 갯수 : 1  
+ 결과 : 4000번  
+ 
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test02 {
+
+	private static final String result = "결과 : '%d'에서 8의 갯수 : '%d'번";
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP 1. TEST 데이터 준비
+		int testNum = 10000;
+		//int testNum = 89;
+
+		// STEP 2. 8의 개수
+		int cnt = countEight( testNum );
+		System.out.println( String.format( result, testNum, cnt ) );
+
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * <PRE>
+	 * 8의 갯수를 찾는다.
+	 * </PRE>
+	 * 
+	 * @param num : 숫자
+	 * @retrun result : 8의 갯수
+	 */
+	// 모범답안
+	public static int countEight( int num ) {
+		int result = 0;
+		char[] arr = null;
+
+		// STEP 1. 1~num까지 숫자를 문자열로 변경하여 Char 값을 확인
+		for ( int inx = 1 ; inx <= num ; inx++ ) {	
+			arr = String.valueOf( inx ).toCharArray();
+			for ( char ch : arr ) {
+				if ( ch == '8' ) {
+					result++;
+				}
+			}
+		}
+		return result;
+	}
+}
+```

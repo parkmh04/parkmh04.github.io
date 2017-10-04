@@ -1,0 +1,100 @@
+---
+title:  "[문자열 비교 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+ ``` java
+
+/**
+ * <PRE>
+ * 1. 개요
+ *  
+ * 현재 앱버전을 최신앱버전과 비교하여, 업데이트 필요 여부를 판단하는 로직을 구현하시오.
+ * ex) APP_VERSION : 6.0.107.03.release
+ * 
+ * 1) 앱 버전의 제일 하위 두 자리(ex:03 -> 04)가 바뀌면 업데이트 선택
+ * 2) 그 외 앞에 버전(6 / 0 / 107) 이 바뀌면 업데이트 필수
+ * 3) 단, 확인해야할 앱버전이 최신 앱버전보다 더 높거나 같으면 업데이트 필요 없음
+ * 
+ * 2. 예상 결과
+ * 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.
+ * 예 1: 6.0.108.03 : 업데이트 '필수'
+ * 예 2: 6.1.105.12 : 업데이트 '필수'
+ * 예 3: 6.0.110.01 : 업데이트 '필수'
+ * 예 4: 6.0.107.06 : 업데이트 '선택'
+ * 예 5: 6.0.107.03 : 업데이트 '필요없음'
+ * 예 6: 6.0.106.03 : 업데이트 '필요없음'
+ * 예 7: 6.0.106.12 : 업데이트 '필요없음'
+ * </PRE>
+ *
+ * @author 양석진
+ */
+public class Test03 {
+
+	private static final String result = "결과 : %s 버전으로 업데이트 '%s'";
+
+	public static void main(String[] args) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// STEP 1. TEST 데이터 준비
+		String currentVersion = "6.0.107.03.release"; // 현재 앱버전
+		String lastVersion = "6.0.106.12"; // 최신 앱 버전
+
+		// STEP 2. 앱 업데이트 필요 여부를 판단한다.
+		String retmsg = checkAppUpate(currentVersion, lastVersion);
+		System.out.println(String.format(result, lastVersion, retmsg));
+
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println("소요시간 : " + endTime + "ms.");
+
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * 앱 업데이트 필요 여부를 판단한다.
+	 * </PRE>
+	 * 
+	 * @param currentVersion : 현재버전
+	 * @param lastVersion : 최신버전
+	 * @return result : 업데이트 필요여부
+	 */
+	public static String checkAppUpate(String currentVersion, String lastVersion) {
+		String result = null;
+
+		// STEP 1. 데이터 파싱
+		String[] currents = currentVersion.split("\\.");
+		String[] lasts = lastVersion.split("\\.");
+
+		if (lasts.length < 4 || currents.length < 4) {
+			result = "오류";
+
+		} else {
+			// STEP 2. 데이터 비교
+			int curVer = Integer.parseInt(currents[0] + currents[1] + currents[2]);
+			int lastVer = Integer.parseInt(lasts[0] + lasts[1] + lasts[2]);
+
+			if (lastVer - curVer > 0) {
+				result = "필수";
+			} else if (lastVer - curVer < 0) {
+				result = "필요 없음";
+			} else {
+				int appSub = Integer.parseInt(currents[3]);
+				int svrSub = Integer.parseInt(lasts[3]);
+
+				if (svrSub - appSub > 0) {
+					result = "선택";
+				}
+			}
+		}
+
+		// STEP 3. 업데이트 필요없음
+		if (result == null) {
+			result = "필요없음";
+		}
+		return result;
+	}
+}
+```

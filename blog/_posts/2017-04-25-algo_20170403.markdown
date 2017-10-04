@@ -1,0 +1,74 @@
+---
+title:  "[N 그리기 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+< 문제 >
+
+- 개요  
+  홀수의 양의 정수를 입력하여 문자N을 사용하여 아래 그림과 같이 ASCII art letter N을 출력하는 프로그램을 작성하시오)  
+      
+ - 예상 결과  
+ 예상 결과는 하기 코드 실행시 예상되는 결과 값이다.  
+ 
+ ``` java 
+ 입력이 1이면, 출력은 :    
+ N
+ 입력이 3 인 경우, 출력은 :    
+ N N  
+ NNN  
+ N N  
+ 입력이 5 인 경우, 출력은 :  
+ N   N  
+ NN  N  
+ N N N  
+ N  NN  
+ N   N  
+   
+ 입력이 7 인 경우, 출력은 :  
+ N     N  
+ NN    N  
+ N N   N  
+ N  N  N  
+ N   N N  
+ N    NN  
+ N     N  
+ ```
+  
+ < 정답풀이 >
+ 
+ ``` java
+ public class Test03 {
+
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		int num = 7;
+		printLetterN( num );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	public static void printLetterN( int num ) { 
+		int var = 0; // 대각선을 표시한다.
+
+		// STEP 1. 정사각형을 찍을 수 있는 평범한 2중 반복문 준비
+		for ( int jnx = 0 ; jnx < num ; jnx++ ) {
+			for ( int inx = 0 ; inx < num ; inx++ ) {
+				
+				// STEP 2. "N"을 출력하는 경우는 제일 처음과 마지막 그리고 대각선이다.
+				if ( inx == 0 || inx == num - 1 || inx == var ) {
+					System.out.print( "N" );
+				} else {
+					System.out.print( " " );
+				}
+			}
+			System.out.println();
+			var++; // 대각선을 그린다.
+		}
+	}
+```

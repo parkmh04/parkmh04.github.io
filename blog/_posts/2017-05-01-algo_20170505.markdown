@@ -1,0 +1,87 @@
+---
+title:  "[배열 합병 - Easy]"
+categories: [Algorithm]
+tags: [Algorithm]
+---
+
+ ``` java
+import java.util.Arrays;
+
+/**
+ * <PRE>
+ * [합병(Merge)]
+ * 
+ * 두 배열을 합병 하여라
+ * (정렬이 되어있지 않다면, 정렬하고 합병한다.)
+ * 
+ *  예제 배열 A = {17,1,9,11,15,19,3,13,5,7}
+ *  예제 배열 B = {12,2,4,10,18,20,6,14,16,8}
+ *  을 Merge 배열에 순서대로 합병하라.
+ * 
+ * <실행결과>
+ * 예제 배열 A : {17,1,9,11,15,19,3,13,5,7}
+ * 예제 배열 B : {12,2,4,10,18,20,6,14,16,8}
+ * 합병 결과 : {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}
+ * </PRE>
+ *
+ * @author    성시찬D
+ */
+public class Test05 {
+	public static void main( String[] args ) {
+		// 시작시간 기록
+		long startTime = System.currentTimeMillis();
+
+		// 예제 배열
+		int arrayA[] = { 17, 1, 9, 11, 15, 19, 3, 13, 5, 7 };
+		int arrayB[] = { 12, 2, 4, 10, 18, 20, 6, 14, 16, 8 };
+		process( arrayA, arrayB );
+
+		// 종료시간 기록
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println( "소요시간 : " + endTime + "ms." );
+	}
+
+	/**
+	 * 
+	 * <PRE>
+	 * 주어진 두 배열을 정렬한뒤 합병한다.
+	 * </PRE>
+	 * 
+	 * @param arrayA : 배열 a
+	 * @param arrayB : 배열 b
+	 */
+	public static void process( int arrayA[], int arrayB[] ) {
+
+		// STEP 1. 두 배열을 정렬
+		Arrays.sort( arrayA );
+		Arrays.sort( arrayB );
+
+		// STEP 2. 결과데이터 준비
+		int size = arrayA.length + arrayB.length;
+		int[] answer = new int[size];
+		int posA = 0, posB = 0;
+
+		// STEP 3. 두 배열을 합병
+		for ( int idx = 0 ; idx < size ; idx++ ) {
+			if ( posA < arrayA.length && posB < arrayB.length ) {
+				if ( arrayA[posA] < arrayB[posB] ) {
+					answer[idx] = arrayA[posA];
+					posA++;
+				} else {
+					answer[idx] = arrayB[posB];
+					posB++;
+				}
+			} else if ( posA < arrayA.length ) {
+				answer[idx] = arrayA[posA];
+				posA++;
+			} else {
+				answer[idx] = arrayB[posB];
+				posB++;
+			}
+		}
+
+		// STEP 4. 출력
+		System.out.println( Arrays.toString( answer ) );
+	}
+}
+```
