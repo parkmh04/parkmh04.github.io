@@ -2,7 +2,7 @@
 title: 창고04
 description: '박명하의 창고입니다.'
 url: 'https://parkmh04.github.io'
-baseurl: /
+# baseurl:
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
