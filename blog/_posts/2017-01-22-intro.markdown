@@ -1,6 +1,0 @@
----
-title:  "Intro..."
-categories: [ETC]
-tags: [ETC]
----
-지금 이순간이 내 인생의 변곡점이 되기를
